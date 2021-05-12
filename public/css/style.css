@@ -1,0 +1,238 @@
+*{
+    border: 0;
+    margin: 0;
+    padding: 0;  
+}
+
+
+body#sections{
+    background: white;  
+    font-size: 17px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    height: 100%;  
+}
+
+section{
+    display: block;
+    text-align: center;
+}
+
+
+/*Header Sections*/
+
+#mainHeaderSections{
+    background: white;  
+    font-size: 17px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    height: 100%;  
+}
+
+
+/*calculate campus Section*/
+
+label.restaurant{
+    font-size: 20px;
+    color: #8b0000;
+    /*    float: left;*/
+
+}
+
+
+
+
+section#contenido{   
+    margin: 0 auto;
+    max-width: 90%;
+}
+
+section#principal{
+    border-radius: 0.5em;
+    display: inline-block;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0.25em;
+    vertical-align: top;
+    width: 65%;
+}
+
+
+.change:hover {
+    background-color: #306583;
+    color: white;
+    text-decoration: none;
+    -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+    transition: font-size 0.3s ease, background-color 0.3s ease;
+    font-size: 20px;
+    color:white !important;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Button main page*/
+.btn-sample { 
+    color: white; 
+    background-color: #B52222; 
+    margin: 200px 5px;
+} 
+
+.btn-sample.active, 
+.open .dropdown-toggle.btn-sample { 
+    color: white; 
+    background-color: #B52222; 
+    border-color: #B52222; 
+} 
+
+.btn-sample:active, 
+.btn-sample.active, 
+.open .dropdown-toggle.btn-sample { 
+    background-image: none; 
+} 
+
+
+.btn-sample .badge { 
+    color: #B52222; 
+    background-color: #FCF7F7; 
+}
+
+
+/*Titles*/
+
+#titles{
+    color: #446881; 
+    text-align: center;
+    padding: 5px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+
+/*Footer*/ 
+
+#footerSections
+{
+    background-color: #004063;
+    bottom: 0;
+    width: 100%;
+    height: 32vh;
+    color: white;
+    display: block;
+    text-align: center;
+}
+#iconosFooter{
+    text-align: right;
+}
+
+
+#infoFooter{
+    text-align: left;
+}
+
+@media screen and (max-width: 1000px) {
+    #infoFooter{
+        text-align: center;
+        margin-top: 2vh;
+    }
+
+    #iconosFooter{
+        text-align: center;
+    }
+    #footerSections{
+        height: 39vh;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #footerSections{
+        background-color: #004063;
+        bottom: 0;
+        width: 100%;
+        height: 36vh;
+        color: white;
+        display: block;
+        text-align: center;
+    }
+    #imgLogoFooter{
+        width: 42vh;
+        height: 20vh;
+    }
+
+    #infoFooter{
+        text-align: center;
+        margin-top: 2vh;
+    }
+
+    #iconosFooter{
+        text-align: center;
+    }
+
+
+}
+
+@media screen and (max-width: 690px) {
+    #footerSections{
+        background-color: #004063;
+        bottom: 0;
+        width: 100%;
+        height: 38vh;
+        color: white;
+        display: block;
+        text-align: center;
+    }
+    #imgLogoFooter{
+        width: 32vh;
+        height: 15vh;
+    }
+
+    #infoFooter{
+        text-align: center;
+    }
+
+}
+
+@media screen and (max-width: 375px) {
+    #footerSections{
+        background-color: #004063;
+        bottom: 0;
+        width: 100%;
+        height: 38vh;
+        color: white;
+        display: block;
+        text-align: center;
+    }
+    #imgLogoFooter{
+        width: 32vh;
+        height: 15vh;
+    }
+
+    #infoFooter{
+        text-align: center;
+    }
+
+}
+
+
+/*Section learning style by features*/
+
+td.learningStyleByFeatures{
+    vertical-align: top; 
+    margin-bottom: 20px;
+}
+
+
+
+label.labelLearningStyleByFeatures{
+    font-size: 16px;
+    color: #8b0000;
+    margin-bottom: 10px;
+
+}
