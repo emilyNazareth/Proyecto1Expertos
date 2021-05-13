@@ -30,13 +30,8 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
         url: '?controlador=Restaurant&accion=getRoutesByRestaurant',
         type: 'post',
         beforeSend: function () {
-            $("button").click(function(){
-    
-                $(this).text("You have clicked me!", function(){
-                    $(this).animate({width:"auto"}, 1000);
-                });
-                    
-            })
+            $("#result").html("");
+            $("#spinner").html(" <div class='spinner-border text-primary' style='margin-top: 5%' id='spinner' role='status'></div>");
         },
         success: function (response) {
             /*Set the span label result*/
@@ -44,7 +39,11 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
                 $("#result").html("<div class='alert alert-danger'>*No \n\
                     se encontraron registros</div>");
             } else {
-                $("#result").html("Aqui van rutas recomendadas");
+                timerId = setInterval(function () {
+                    $("#spinner").html("");
+                    $("#result").html("Aqui van rutas recomendadas");
+                }, 3000);
+
             }
         }
     });
