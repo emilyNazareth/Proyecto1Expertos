@@ -122,4 +122,68 @@ function calculateRoutesActivity(startingPoint, finalDestination,
     });
 }
 
+function calculateRecommendedSite(startingPoint, finalDestination) {
+    
+    var parameters = {
+        "startingPoint": startingPoint,
+        "finalDestination": finalDestination
+    };
+    $.ajax({
+        data: parameters,
+        url: '?controlador=RecommendedSite&accion=getRecommendedSite',
+        type: 'post',
+        
+        beforeSend: function () {
+            $("#result").html("");
+            $("#spinner").html(" <div class='spinner-border text-primary' style='margin-top: 5%' id='spinner' role='status'></div>");
+        },
+        success: function (response) {
+            /*Set the span label result*/
+            if (response === 0) {
+                $("#result").html("<div class='alert alert-danger'>*No \n\
+                    se encontraron registros</div>");
+            } else {
+                timerId = setInterval(function () {
+                    $("#spinner").html("");
+                    $("#result").html("Aqui van rutas recomendadas");
+                }, 3000);
 
+            }
+        }
+    });
+}
+
+
+function calculateRoutesTourist(startingPoint, finalDestination, typeTourist, ageRange, budget) {
+    
+    var parameters = {
+        "startingPoint": startingPoint,
+        "finalDestination": finalDestination,
+        "typeTourist": typeTourist,
+        "ageRange": ageRange,
+        "budget": budget
+    };
+    $.ajax({
+        data: parameters,
+        url: '?controlador=Tourist&accion=getRoutesByTourist',
+        type: 'post',
+        
+        beforeSend: function () {
+            $("#result").html("");
+            $("#spinner").html(" <div class='spinner-border text-primary' style='margin-top: 5%' id='spinner' role='status'></div>");
+        },
+        success: function (response) {
+            /*Set the span label result*/
+            if (response === 0) {
+                $("#result").html("<div class='alert alert-danger'>*No \n\
+                    se encontraron registros</div>");
+            } else {
+                timerId = setInterval(function () {
+                    $("#spinner").html("");
+                    $("#result").html("Aqui van rutas recomendadas");
+                }, 3000);
+
+            }
+        }
+    });
+}
