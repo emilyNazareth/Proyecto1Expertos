@@ -42,13 +42,13 @@
                         <div class="navbar-nav">
                             <a href="?controlador=Index&accion=mostrar" class="nav-item nav-link active change" style="color: white">Inicio</a>
                             <a href="?controlador=Restaurant&accion=showRestaurantView" class="nav-item nav-link change" style="color: white">Restaurante</a>
-                            <a href="?controlador=Campus&accion=showCalculateCampus" class="nav-item nav-link change" style="color: white">Hotel</a>
-                            <a href="?controlador=Gender&accion=showCalculateGender" class="nav-item nav-link change" style="color: white">Tipo de actividad</a>
-                            <a href="?controlador=LearningStyle&accion=showLearningStyle" class="nav-item nav-link change" style="color: white">Sitios recomendados</a>
-                            <a href="?controlador=Teacher&accion=showCalculateTeacherType" class="nav-item nav-link change" style="color: white">Tipo de turista</a>
-                            <a href="?controlador=Network&accion=showcalculateNetworks" class="nav-item nav-link change" style="color: white">Establecimientos de servicio</a>
-                            <a href="?controlador=Network&accion=showcalculateNetworks" class="nav-item nav-link change" style="color: white">Tipo de camino</a>
-                            <a href="?controlador=Network&accion=showcalculateNetworks" class="nav-item nav-link change" style="color: white">Creditos</a>
+                            <a href="?controlador=Hotel&accion=showHotelView" class="nav-item nav-link change" style="color: white">Hotel</a>
+                            <a href="?controlador=Activity&accion=showActivityView" class="nav-item nav-link change" style="color: white">Tipo de actividad</a>
+                            <a href="?controlador=RecommendedSite&accion=showRecommendedSiteView" class="nav-item nav-link change" style="color: white">Sitios recomendados</a>
+                            <a href="?controlador=Tourist&accion=showTouristView" class="nav-item nav-link change" style="color: white">Tipo de turista</a>
+                            <a href="?controlador=serviceEstablishments&accion=showServiceEstablishments" class="nav-item nav-link change" style="color: white">Establecimientos de servicio</a>
+                            <a href="?controlador=TypeOfRoad&accion=showTypeOfRoadView" class="nav-item nav-link change" style="color: white">Tipo de camino</a>
+                            <a href="?controlador=About&accion=aboutView" class="nav-item nav-link change" style="color: white">Créditos</a>
                         </div>
                     </div>
                 </nav>
