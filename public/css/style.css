@@ -236,3 +236,18 @@ label.labelLearningStyleByFeatures{
     margin-bottom: 10px;
 
 }
+
+/*Site address*/
+#titleSiteAddress{
+    color: #446881; 
+    text-align: center;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+#descriptionSiteAddress{
+    color: #B22222; 
+    text-align: center;
+    padding: 5px;
+    margin-top: 10px;
+}

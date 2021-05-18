@@ -105,9 +105,17 @@ include_once 'public/headerSections.php';
 
     </div>
     <div id="spinner"></div>
-    <div style="margin-top : 50px">
+    <div style="margin-top : 50px; margin-bottom: 5%;">
         <span style="color: #8b0000;" id="result"></span>
     </div>
+
+    <div class="card-deck" id="sites">
+
+    </div>
+
+    
+
+
 
 </div>
 

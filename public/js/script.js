@@ -19,6 +19,7 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
     var parameters = {
         "initialDestination": $initialDestination,
         "finalDestination": $finalDestination,
+        "restaurantStars": $restaurantStars,
         "foodType": $foodType,
         "price": $price,
         "restauranteType": $restauranteType,
@@ -39,10 +40,27 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
                 $("#result").html("<div class='alert alert-danger'>*No \n\
                     se encontraron registros</div>");
             } else {
+                $("#sites").html("");
                 timerId = setInterval(function () {
                     $("#spinner").html("");
-                    $("#result").html("Aqui van rutas recomendadas");
+                    $("#result").html("Rutas recomendadas que se cargaran dinamicamente");
+                    $createHTML = "";
+                    var restaurants = ["Tukasa", "Silvestre", "Rio"];
+                    for (var i = 0; i < restaurants.length; i++) {
+                        $createHTML += "<div class='card' style='width: 18rem;'"
+                            + "><img class='card-img-top' src='public/img/"
+                            + restaurants[i] + ".jpg' width='300' height='300'" +
+                            "alt='Card image cap'><div class='card-body'>" +
+                            "<h5 class='card-title'>" + restaurants[i] + "</h5>" +
+                            "<p class='card-text'>Tu mejor destino, disfruta de un" +
+                            "delicia gastronomica en compañia de los tuyos</p>" +
+                            "<a href='?controlador=Restaurant&accion=showSiteAddress&id=" 
+                            +  restaurants[i] + "'" + "class='btn btn-primary'>" 
+                            + "Ir</a></div></div>"
+                    }
+                    $("#sites").html($createHTML);
                 }, 3000);
+
 
             }
         }
@@ -97,6 +115,7 @@ function calculateRoutesActivity(startingPoint, finalDestination,
         "hotelFacility": activityModality,
         "activityDuration": activityDuration
     };
+
 
     $.ajax({
         data: parameters,
