@@ -46,9 +46,9 @@
                             <a href="?controlador=Activity&accion=showActivityView" class="nav-item nav-link change" style="color: white">Tipo de actividad</a>
                             <a href="?controlador=RecommendedSite&accion=showRecommendedSiteView" class="nav-item nav-link change" style="color: white">Sitios recomendados</a>
                             <a href="?controlador=Tourist&accion=showTouristView" class="nav-item nav-link change" style="color: white">Tipo de turista</a>
-                            <a href="?controlador=Network&accion=showcalculateNetworks" class="nav-item nav-link change" style="color: white">Establecimientos de servicio</a>
-                            <a href="?controlador=Network&accion=showcalculateNetworks" class="nav-item nav-link change" style="color: white">Tipo de camino</a>
-                            <a href="?controlador=Network&accion=showcalculateNetworks" class="nav-item nav-link change" style="color: white">Creditos</a>
+                            <a href="?controlador=serviceEstablishments&accion=showServiceEstablishments" class="nav-item nav-link change" style="color: white">Establecimientos de servicio</a>
+                            <a href="?controlador=TypeOfRoad&accion=showTypeOfRoadView" class="nav-item nav-link change" style="color: white">Tipo de camino</a>
+                            <a href="?controlador=About&accion=aboutView" class="nav-item nav-link change" style="color: white">Créditos</a>
                         </div>
                     </div>
                 </nav>

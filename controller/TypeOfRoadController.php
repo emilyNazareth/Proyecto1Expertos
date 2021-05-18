@@ -1,6 +1,6 @@
 <?php
 
-class ActivityController
+class TypeOfRoadController
 {
 
     public function __construct()
@@ -9,22 +9,22 @@ class ActivityController
     }
 
     /**
-     * Show activity view
+     * Show Type Of Road view
      */
 
-    public function showActivityView()
+    public function showTypeOfRoadView()
     {
-        $this->view->show("activityView.php", null);
+        $this->view->show("typeOfRoadView.php", null);
     }
 
     /**
-     * Get route by activity preferences
+     * Get by Type Of Road
      */
-    public function getRoutesByActivity()
+    public function getByTypeOfRoad()
     {                    
         /**
          * send the stringHTML to javascript ajax to show the result in the view
          */
-        echo "Buscando Hotel";
+        echo "Buscando Sitio";
     }
 }

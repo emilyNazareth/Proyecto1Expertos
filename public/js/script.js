@@ -187,3 +187,63 @@ function calculateRoutesTourist(startingPoint, finalDestination, typeTourist, ag
         }
     });
 }
+function calculateServiceEstablishments(startingPoint) {
+    
+    var parameters = {
+        "startingPoint": startingPoint       
+    };
+    $.ajax({
+        data: parameters,
+        url: '?controlador=ServiceEstablishments&accion=getServiceEstablishments',
+        type: 'post',
+        
+        beforeSend: function () {
+            $("#result").html("");
+            $("#spinner").html(" <div class='spinner-border text-primary' style='margin-top: 5%' id='spinner' role='status'></div>");
+        },
+        success: function (response) {
+            /*Set the span label result*/
+            if (response === 0) {
+                $("#result").html("<div class='alert alert-danger'>*No \n\
+                    se encontraron registros</div>");
+            } else {
+                timerId = setInterval(function () {
+                    $("#spinner").html("");
+                    $("#result").html("Aqui van rutas recomendadas");
+                }, 3000);
+
+            }
+        }
+    });
+}
+function calculateTypeOfRoad(startingPoint, finalDestination, typeOfRoad) {
+    
+    var parameters = {
+        "startingPoint": startingPoint,
+        "finalDestination": finalDestination,
+        "typeOfRoad":typeOfRoad
+    };
+    $.ajax({
+        data: parameters,
+        url: '?controlador=TypeOfRoad&accion=getByTypeOfRoad',
+        type: 'post',
+        
+        beforeSend: function () {
+            $("#result").html("");
+            $("#spinner").html(" <div class='spinner-border text-primary' style='margin-top: 5%' id='spinner' role='status'></div>");
+        },
+        success: function (response) {
+            /*Set the span label result*/
+            if (response === 0) {
+                $("#result").html("<div class='alert alert-danger'>*No \n\
+                    se encontraron registros</div>");
+            } else {
+                timerId = setInterval(function () {
+                    $("#spinner").html("");
+                    $("#result").html("Aqui van rutas recomendadas");
+                }, 3000);
+
+            }
+        }
+    });
+}

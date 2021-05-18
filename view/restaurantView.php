@@ -4,7 +4,7 @@ include_once 'public/headerSections.php';
 <div class="container text-center">
 
     <h2 id="titles">
-        Busqueda por restaurante</h2>
+        Búsqueda por restaurante</h2>
 
     <div class="container">
 
@@ -16,7 +16,7 @@ include_once 'public/headerSections.php';
                 <select class="form-select" id="initialDestination">
                     <option value="1">Cartago</option>
                     <option value="2">Turrialba</option>
-                    <option value="3">San Jose</option>
+                    <option value="3">San José</option>
                     <option value="4">Cervantes</option>
                 </select>
             </div>
@@ -27,7 +27,7 @@ include_once 'public/headerSections.php';
                 <select class="form-select" id="finalDestination">
                     <option value="1">Turrialba</option>
                     <option value="2">Cervantes</option>
-                    <option value="3">San Jose</option>
+                    <option value="3">San José</option>
                     <option value="4">Cartago</option>
                 </select>
             </div>
@@ -36,7 +36,7 @@ include_once 'public/headerSections.php';
                     Estrellas</label>
                 <br>
                 <select class="form-select" id="restaurantStars">
-                    <option value="1">1 a 2 estrella</option>
+                    <option value="1">1 a 2 estrellas</option>
                     <option value="2">3 estrellas</option>
                     <option value="3">4 estrellas</option>
                     <option value="4">5 estrellas</option>
@@ -51,8 +51,8 @@ include_once 'public/headerSections.php';
                     Tipo de comida</label>
                 <br>
                 <select class="form-select" id="foodType">
-                    <option value="1">Tipica</option>
-                    <option value="2">Rapida</option>
+                    <option value="1">Típica</option>
+                    <option value="2">Rápida</option>
                     <option value="3">Gourmet</option>
                     <option value="4">Carnes</option>
                 </select>
@@ -89,9 +89,9 @@ include_once 'public/headerSections.php';
                 <select class="form-select" id="closingTime">
                     <option value="1">5:00 pm</option>
                     <option value="1">6:00 pm</option>
-                    <option value="2">7:00pm</option>
-                    <option value="3">8:00pm</option>
-                    <option value="4">9:00pm</option>
+                    <option value="2">7:00 pm</option>
+                    <option value="3">8:00 pm</option>
+                    <option value="4">9:00 pm</option>
                 </select>
             </div>
         </div>
