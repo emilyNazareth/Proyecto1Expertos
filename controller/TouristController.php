@@ -33,12 +33,12 @@ class TouristController
         $maps = array(
             'iframe'            
         );
-        if ($id == "Tukasa") {
-            $maps['iframe'] = "'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.799259300616!2d-83.94412668500046!3d9.867202278013572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0dfe68706b7af%3A0xfbec888af13b9bee!2sTUKASA%20Caf%C3%A9%20Paseo%20Metr%C3%B3poli!5e0!3m2!1ses!2scr!4v1621371389862!5m2!1ses!2scr' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy'";
-        } else if ($id == "Silvestre") {
-            $maps['iframe'] = "'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.9442927146056!2d-84.07846478500021!3d9.938593276814984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e361de6ffff9%3A0x59b3c91156a1ae1e!2sRestaurante%20Silvestre!5e0!3m2!1ses!2scr!4v1621372111394!5m2!1ses!2scr' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy'";
+        if ($id == "Parque Nacional Tapantí - Macizo de la Muerte") {
+            $maps['iframe'] = "'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d470499.4275397464!2d-83.70893549620726!3d9.76414113752537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa121d6c8282e91%3A0xbc93ea2f86658835!2sParque%20Nacional%20Tapant%C3%AD%20-%20Macizo%20de%20la%20Muerte!5e0!3m2!1ses!2scr!4v1621448379614!5m2!1ses!2scr' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy'";
+        } else if ($id == "Tamarindo") {
+            $maps['iframe'] = "'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15702.04594606016!2d-85.84682468864357!3d10.300888482322959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f9e39409203c30f%3A0xbb189f5e2cc1f893!2sProvincia%20de%20Guanacaste%2C%20Tamarindo!5e0!3m2!1ses!2scr!4v1621448460526!5m2!1ses!2scr' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy'";
         } else {
-            $maps['iframe'] = "'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1965.1080687710182!2d-83.69244244127808!3d9.915949000000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0d6bb8f45c923%3A0xa1009826a213798!2sR%C3%ADo%20Bar%20y%20Restaurante!5e0!3m2!1ses!2scr!4v1621372253242!5m2!1ses!2scr' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy'";
+            $maps['iframe'] = "'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15704.846355193184!2d-85.84199205006384!3d10.244511953916183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f9e38a9524e6387%3A0x2839c12e9717f21!2sPlaya%20Avellana!5e0!3m2!1ses!2scr!4v1621448610003!5m2!1ses!2scr' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy'";
         }
 
         $this->view->show("addressSiteView.php", $maps);
