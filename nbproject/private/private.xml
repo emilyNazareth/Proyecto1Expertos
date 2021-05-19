@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/Proyecto1Expertos/public/headerSections.php</file>
-            <file>file:/C:/xampp/htdocs/Proyecto1Expertos/public/js/script.js</file>
-            <file>file:/C:/xampp/htdocs/Proyecto1Expertos/view/touristView.php</file>
-            <file>file:/C:/xampp/htdocs/Proyecto1Expertos/controller/TouristController.php</file>
-        </group>
-    </open-files>
-</project-private>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.php.project</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/php-project/1">
+            <name>Tarea1Expertos</name>
+        </data>
+        <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>carrucel</word>
+            <word>galery</word>
+        </spellchecker-wordlist>
+    </configuration>
+</project>

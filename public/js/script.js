@@ -258,8 +258,23 @@ function calculateServiceEstablishments(startingPoint) {
                     se encontraron registros</div>");
             } else {
                 timerId = setInterval(function () {
-                    $("#spinner").html("");
-                    $("#result").html("Aqui van rutas recomendadas");
+                    $("#spinner").html("");                    
+                    $("#result").html("Rutas recomendadas que se cargarán dinámicamente");
+                    $createHTML = "";
+                    var serviceEstablishments = ["JSMTurrialba", "Delta", "UNO"];
+                    for (var i = 0; i < serviceEstablishments.length; i++) {
+                        $createHTML += "<div class='card' style='width: 18rem;'"
+                            + "><img class='card-img-top' src='public/img/"
+                            + serviceEstablishments[i] + ".jpg' width='300' height='300'" +
+                            "alt='Card image cap'><div class='card-body'>" +
+                            "<h5 class='card-title'>" + serviceEstablishments[i] + "</h5>" +
+                            "<p class='card-text'>Una de las opciones cercanas " +
+                            "sobre establecimientos de servicios</p>" +
+                            "<a href='?controlador=ServiceEstablishments&accion=getServiceEstablishments&id=" 
+                            +  serviceEstablishments[i] + "'" + "class='btn btn-primary'>" 
+                            + "Ir</a></div></div>"
+                    }
+                    $("#sites").html($createHTML);
                 }, 3000);
 
             }
@@ -290,7 +305,22 @@ function calculateTypeOfRoad(startingPoint, finalDestination, typeOfRoad) {
             } else {
                 timerId = setInterval(function () {
                     $("#spinner").html("");
-                    $("#result").html("Aqui van rutas recomendadas");
+                    $("#result").html("Rutas recomendadas que se cargarán dinámicamente");
+                    $createHTML = "";
+                    var serviceEstablishments = ["Ujarrás", "Sanatorio-Durán", "Prusia"];
+                    for (var i = 0; i < serviceEstablishments.length; i++) {
+                        $createHTML += "<div class='card' style='width: 18rem;'"
+                            + "><img class='card-img-top' src='public/img/"
+                            + serviceEstablishments[i] + ".jpg' width='300' height='300'" +
+                            "alt='Card image cap'><div class='card-body'>" +
+                            "<h5 class='card-title'>" + serviceEstablishments[i] + "</h5>" +
+                            "<p class='card-text'>Una de las mejores opciones  " +
+                            "para disfrutar en este día</p>" +
+                            "<a href='?controlador=TypeOfRoad&accion=getByTypeOfRoad&id=" 
+                            +  serviceEstablishments[i] + "'" + "class='btn btn-primary'>" 
+                            + "Ir</a></div></div>"
+                    }
+                    $("#sites").html($createHTML);
                 }, 3000);
 
             }
