@@ -1,8 +1,8 @@
 /**
-   * Verify if the field is empty
-   * @param string $fieldValue value of field 
-   * @return Boolean  return true or false  
-   */
+ * Verify if the field is empty
+ * @param string $fieldValue value of field 
+ * @return Boolean  return true or false  
+ */
 function isFieldEmpty(fieldValue) {
     if (fieldValue.trim() === "") {
         return true;
@@ -14,7 +14,7 @@ function isFieldEmpty(fieldValue) {
 
 
 function calculateRoutesRestaurant($initialDestination, $finalDestination,
-    $restaurantStars, $foodType, $price, $restauranteType, $closingTime) {
+        $restaurantStars, $foodType, $price, $restauranteType, $closingTime) {
 
     var parameters = {
         "initialDestination": $initialDestination,
@@ -48,15 +48,15 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
                     var restaurants = ["Tukasa", "Silvestre", "Rio"];
                     for (var i = 0; i < restaurants.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
-                            + "><img class='card-img-top' src='public/img/"
-                            + restaurants[i] + ".jpg' width='300' height='300'" +
-                            "alt='Card image cap'><div class='card-body'>" +
-                            "<h5 class='card-title'>" + restaurants[i] + "</h5>" +
-                            "<p class='card-text'>Tu mejor destino, disfruta de un" +
-                            "delicia gastronomica en compañia de los tuyos</p>" +
-                            "<a href='?controlador=Restaurant&accion=showSiteAddress&id=" 
-                            +  restaurants[i] + "'" + "class='btn btn-primary'>" 
-                            + "Ir</a></div></div>"
+                                + "><img class='card-img-top' src='public/img/"
+                                + restaurants[i] + ".jpg' width='300' height='300'" +
+                                "alt='Card image cap'><div class='card-body'>" +
+                                "<h5 class='card-title'>" + restaurants[i] + "</h5>" +
+                                "<p class='card-text'>Tu mejor destino, disfruta de un" +
+                                "delicia gastronomica en compañia de los tuyos</p>" +
+                                "<a href='?controlador=Restaurant&accion=showSiteAddress&id="
+                                + restaurants[i] + "'" + "class='btn btn-primary'>"
+                                + "Ir</a></div></div>"
                     }
                     $("#sites").html($createHTML);
                 }, 3000);
@@ -68,7 +68,7 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
 }
 
 function calculateRoutesHotel(startingPoint, finalDestination,
-    hotelStars, hotelType, hotelPrice, hotelFacility) {
+        hotelStars, hotelType, hotelPrice, hotelFacility) {
 
     var parameters = {
         "startingPoint": startingPoint,
@@ -104,7 +104,7 @@ function calculateRoutesHotel(startingPoint, finalDestination,
 }
 
 function calculateRoutesActivity(startingPoint, finalDestination,
-    activityRequirement, activityType, activityPrice, activityModality, activityDuration) {
+        activityRequirement, activityType, activityPrice, activityModality, activityDuration) {
 
     var parameters = {
         "startingPoint": startingPoint,
@@ -142,7 +142,7 @@ function calculateRoutesActivity(startingPoint, finalDestination,
 }
 
 function calculateRecommendedSite(startingPoint, finalDestination) {
-    
+
     var parameters = {
         "startingPoint": startingPoint,
         "finalDestination": finalDestination
@@ -151,7 +151,7 @@ function calculateRecommendedSite(startingPoint, finalDestination) {
         data: parameters,
         url: '?controlador=RecommendedSite&accion=getRecommendedSite',
         type: 'post',
-        
+
         beforeSend: function () {
             $("#result").html("");
             $("#spinner").html(" <div class='spinner-border text-primary' style='margin-top: 5%' id='spinner' role='status'></div>");
@@ -162,9 +162,25 @@ function calculateRecommendedSite(startingPoint, finalDestination) {
                 $("#result").html("<div class='alert alert-danger'>*No \n\
                     se encontraron registros</div>");
             } else {
+                $("#sites").html("");
                 timerId = setInterval(function () {
                     $("#spinner").html("");
-                    $("#result").html("Aqui van rutas recomendadas");
+                    $("#result").html("Rutas recomendadas que se cargaran dinamicamente");
+                    $createHTML = "";
+                    var sites = ["Tukasa", "Silvestre", "Rio"];
+                    for (var i = 0; i < sites.length; i++) {
+                        $createHTML += "<div class='card' style='width: 18rem;'"
+                                + "><img class='card-img-top' src='public/img/"
+                                + sites[i] + ".jpg' width='300' height='300'" +
+                                "alt='Card image cap'><div class='card-body'>" +
+                                "<h5 class='card-title'>" + sites[i] + "</h5>" +
+                                "<p class='card-text'>Tu mejor destino, disfruta del" +
+                                "viaje en compañia de los tuyos</p>" +
+                                "<a href='?controlador=Restaurant&accion=showSiteAddress&id="
+                                + sites[i] + "'" + "class='btn btn-primary'>"
+                                + "Ir</a></div></div>"
+                    }
+                    $("#sites").html($createHTML);
                 }, 3000);
 
             }
@@ -174,7 +190,7 @@ function calculateRecommendedSite(startingPoint, finalDestination) {
 
 
 function calculateRoutesTourist(startingPoint, finalDestination, typeTourist, ageRange, budget) {
-    
+
     var parameters = {
         "startingPoint": startingPoint,
         "finalDestination": finalDestination,
@@ -186,7 +202,7 @@ function calculateRoutesTourist(startingPoint, finalDestination, typeTourist, ag
         data: parameters,
         url: '?controlador=Tourist&accion=getRoutesByTourist',
         type: 'post',
-        
+
         beforeSend: function () {
             $("#result").html("");
             $("#spinner").html(" <div class='spinner-border text-primary' style='margin-top: 5%' id='spinner' role='status'></div>");
@@ -197,25 +213,40 @@ function calculateRoutesTourist(startingPoint, finalDestination, typeTourist, ag
                 $("#result").html("<div class='alert alert-danger'>*No \n\
                     se encontraron registros</div>");
             } else {
+                $("#sites").html("");
                 timerId = setInterval(function () {
                     $("#spinner").html("");
-                    $("#result").html("Aqui van rutas recomendadas");
+                    $("#result").html("Rutas recomendadas que se cargaran dinamicamente");
+                    $createHTML = "";
+                    var sites = ["Tukasa", "Silvestre", "Rio"];
+                    for (var i = 0; i < sites.length; i++) {
+                        $createHTML += "<div class='card' style='width: 18rem;'"
+                                + "><img class='card-img-top' src='public/img/"
+                                + sites[i] + ".jpg' width='300' height='300'" +
+                                "alt='Card image cap'><div class='card-body'>" +
+                                "<h5 class='card-title'>" + sites[i] + "</h5>" +
+                                "<p class='card-text'>Tu mejor destino, disfruta del" +
+                                "viaje en compañia de los tuyos</p>" +
+                                "<a href='?controlador=Restaurant&accion=showSiteAddress&id="
+                                + sites[i] + "'" + "class='btn btn-primary'>"
+                                + "Ir</a></div></div>"
+                    }
+                    $("#sites").html($createHTML);
                 }, 3000);
-
             }
         }
     });
 }
 function calculateServiceEstablishments(startingPoint) {
-    
+
     var parameters = {
-        "startingPoint": startingPoint       
+        "startingPoint": startingPoint
     };
     $.ajax({
         data: parameters,
         url: '?controlador=ServiceEstablishments&accion=getServiceEstablishments',
         type: 'post',
-        
+
         beforeSend: function () {
             $("#result").html("");
             $("#spinner").html(" <div class='spinner-border text-primary' style='margin-top: 5%' id='spinner' role='status'></div>");
@@ -251,17 +282,17 @@ function calculateServiceEstablishments(startingPoint) {
     });
 }
 function calculateTypeOfRoad(startingPoint, finalDestination, typeOfRoad) {
-    
+
     var parameters = {
         "startingPoint": startingPoint,
         "finalDestination": finalDestination,
-        "typeOfRoad":typeOfRoad
+        "typeOfRoad": typeOfRoad
     };
     $.ajax({
         data: parameters,
         url: '?controlador=TypeOfRoad&accion=getByTypeOfRoad',
         type: 'post',
-        
+
         beforeSend: function () {
             $("#result").html("");
             $("#spinner").html(" <div class='spinner-border text-primary' style='margin-top: 5%' id='spinner' role='status'></div>");

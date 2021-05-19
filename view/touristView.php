@@ -70,19 +70,21 @@ include_once 'public/headerSections.php';
         </div>
     </div>
 
-   
+
     <div style="margin-top: 100px">
         <input type="button" class="btn btn-danger" href="javascript:;" onclick="calculateRoutesTourist($('#startingPoint').val(),
-                               $('#typeTourist').val(), $('#ageRange').val(),
-                               $('#budget').val());
-                       return false;" id="calculateRoutesTourist" name="calculateRoutesTourist" value="Buscar" />
+                        $('#typeTourist').val(), $('#ageRange').val(),
+                        $('#budget').val());
+                return false;" id="calculateRoutesTourist" name="calculateRoutesTourist" value="Buscar" />
 
     </div>
     <div id="spinner"></div>
     <div style="margin-top : 50px">
         <span style="color: #8b0000;" id="result"></span>
     </div>
+    <div class="card-deck" id="sites">
 
+    </div>
 </div>
 
 <?php
