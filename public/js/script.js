@@ -167,14 +167,14 @@ function calculateRecommendedSite(startingPoint, finalDestination) {
                     $("#spinner").html("");
                     $("#result").html("Rutas recomendadas que se cargaran dinamicamente");
                     $createHTML = "";
-                    var sites = ["Tukasa", "Silvestre", "Rio"];
+                    var sites = ["Cerro Chirripó", "Parque Nacional Marino Ballena", "Refugio Nacional Gandoca-Manzanillo"];
                     for (var i = 0; i < sites.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
                                 + "><img class='card-img-top' src='public/img/"
                                 + sites[i] + ".jpg' width='300' height='300'" +
                                 "alt='Card image cap'><div class='card-body'>" +
                                 "<h5 class='card-title'>" + sites[i] + "</h5>" +
-                                "<p class='card-text'>Tu mejor destino, disfruta del" +
+                                "<p class='card-text'>Tu mejor destino, disfruta del " +
                                 "viaje en compañia de los tuyos</p>" +
                                 "<a href='?controlador=RecommendedSite&accion=showSiteAddress&id="
                                 + sites[i] + "'" + "class='btn btn-primary'>"
@@ -218,14 +218,14 @@ function calculateRoutesTourist(startingPoint, finalDestination, typeTourist, ag
                     $("#spinner").html("");
                     $("#result").html("Rutas recomendadas que se cargaran dinamicamente");
                     $createHTML = "";
-                    var sites = ["Tukasa", "Silvestre", "Rio"];
+                    var sites = ["Parque Nacional Tapantí - Macizo de la Muerte", "Tamarindo", "Playa Avellana"];
                     for (var i = 0; i < sites.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
                                 + "><img class='card-img-top' src='public/img/"
                                 + sites[i] + ".jpg' width='300' height='300'" +
                                 "alt='Card image cap'><div class='card-body'>" +
                                 "<h5 class='card-title'>" + sites[i] + "</h5>" +
-                                "<p class='card-text'>Tu mejor destino, disfruta del" +
+                                "<p class='card-text'>Tu mejor destino, disfruta del " +
                                 "viaje en compañia de los tuyos</p>" +
                                 "<a href='?controlador=Tourist&accion=showSiteAddress&id="
                                 + sites[i] + "'" + "class='btn btn-primary'>"
