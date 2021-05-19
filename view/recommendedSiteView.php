@@ -43,6 +43,9 @@ include_once 'public/headerSections.php';
         <div style="margin-top : 50px">
             <span style="color: #8b0000;" id="result"></span>
         </div>
+    <div class="card-deck" id="sites">
+
+    </div>
 
     
 </div>

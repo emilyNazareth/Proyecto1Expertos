@@ -3,32 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/controller/LearningStyleController.php</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/libs/Config.php</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/controller/GenderController.php</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/view/calculateLearningStyleView.php</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/public/js/bootstrap.js</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/controller/IndexController.php</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/view/calculateLearningStyleByFeaturesView.php</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/public/headerSections.php</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/public/footerSections.php</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/libs/FrontController.php</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/libs/View.php</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/libs/configuration.php</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/controller/Distance.php</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/view/calculateGenderView.php</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/libs/SPDO.php</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/view/calculateCampusView.php</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/public/js/script.js</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/view/indexView.php</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/model/DataSetModel.php</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/controller/TeacherController.php</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/public/css/style.css</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/controller/CampusController.php</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/controller/HistoryController.php</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/controller/NetworkController.php</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/view/calculateNetworksView.php</file>
-            <file>file:/C:/xampp/htdocs/Tarea1Expertos/view/calculateTeacherTypeView.php</file>
+            <file>file:/C:/xampp/htdocs/Proyecto1Expertos/public/headerSections.php</file>
+            <file>file:/C:/xampp/htdocs/Proyecto1Expertos/public/js/script.js</file>
+            <file>file:/C:/xampp/htdocs/Proyecto1Expertos/view/touristView.php</file>
+            <file>file:/C:/xampp/htdocs/Proyecto1Expertos/controller/TouristController.php</file>
         </group>
     </open-files>
 </project-private>
