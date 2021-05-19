@@ -176,7 +176,7 @@ function calculateRecommendedSite(startingPoint, finalDestination) {
                                 "<h5 class='card-title'>" + sites[i] + "</h5>" +
                                 "<p class='card-text'>Tu mejor destino, disfruta del" +
                                 "viaje en compañia de los tuyos</p>" +
-                                "<a href='?controlador=Restaurant&accion=showSiteAddress&id="
+                                "<a href='?controlador=RecommendedSite&accion=showSiteAddress&id="
                                 + sites[i] + "'" + "class='btn btn-primary'>"
                                 + "Ir</a></div></div>"
                     }
@@ -227,7 +227,7 @@ function calculateRoutesTourist(startingPoint, finalDestination, typeTourist, ag
                                 "<h5 class='card-title'>" + sites[i] + "</h5>" +
                                 "<p class='card-text'>Tu mejor destino, disfruta del" +
                                 "viaje en compañia de los tuyos</p>" +
-                                "<a href='?controlador=Restaurant&accion=showSiteAddress&id="
+                                "<a href='?controlador=Tourist&accion=showSiteAddress&id="
                                 + sites[i] + "'" + "class='btn btn-primary'>"
                                 + "Ir</a></div></div>"
                     }
