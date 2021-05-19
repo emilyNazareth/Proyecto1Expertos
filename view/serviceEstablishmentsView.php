@@ -24,16 +24,19 @@ include_once 'public/headerSections.php';
         </div>
         <div style="margin-top: 100px">
             <input type="button" class="btn btn-danger" href="javascript:;" onclick="calculateServiceEstablishments($('#startingPoint').val());
-                return false;" id="calculateServiceEstablishments" name="calculateServiceEstablishments" value="Buscar" />
+                    return false;" id="calculateServiceEstablishments" name="calculateServiceEstablishments" value="Buscar" />
 
         </div>
         <div id="spinner"></div>
         <div style="margin-top : 50px">
             <span style="color: #8b0000;" id="result"></span>
         </div>
+        <div class="card-deck" id="sites">
 
-    
-</div>
-<?php
-include_once 'public/footerSections.php';
-?>
+        </div>
+
+
+    </div>
+    <?php
+    include_once 'public/footerSections.php';
+    ?>
