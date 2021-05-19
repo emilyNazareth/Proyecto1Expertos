@@ -95,7 +95,22 @@ function calculateRoutesHotel(startingPoint, finalDestination,
             } else {
                 timerId = setInterval(function () {
                     $("#spinner").html("");
-                    $("#result").html("Aqui van rutas recomendadas");
+                    $("#result").html("Rutas recomendadas que se cargaran dinamicamente");
+                    $createHTML = "";
+                    var hotels = ["Columbus", "ibza", "Hampton"];
+                    for (var i = 0; i < hotels.length; i++) {
+                        $createHTML += "<div class='card' style='width: 18rem;'"
+                                + "><img class='card-img-top' src='public/img/"
+                                + hotels[i] + ".jpg' width='300' height='300'" +
+                                "alt='Card image cap'><div class='card-body'>" +
+                                "<h5 class='card-title'>" + hotels[i] + "</h5>" +
+                                "<p class='card-text'>Tu mejor destino, disfruta de un" +
+                                "delicia gastronomica en compañia de los tuyos</p>" +
+                                "<a href='?controlador=Hotel&accion=showSiteAddress&id="
+                                + hotels[i] + "'" + "class='btn btn-primary'>"
+                                + "Ir</a></div></div>"
+                    }
+                    $("#sites").html($createHTML);
                 }, 3000);
 
             }
@@ -133,7 +148,22 @@ function calculateRoutesActivity(startingPoint, finalDestination,
             } else {
                 timerId = setInterval(function () {
                     $("#spinner").html("");
-                    $("#result").html("Aqui van rutas recomendadas");
+                    $("#result").html("Rutas recomendadas que se cargaran dinamicamente");
+                    $createHTML = "";
+                    var hotels = ["Columbus", "ibza", "Hampton"];
+                    for (var i = 0; i < hotels.length; i++) {
+                        $createHTML += "<div class='card' style='width: 18rem;'"
+                                + "><img class='card-img-top' src='public/img/"
+                                + hotels[i] + ".jpg' width='300' height='300'" +
+                                "alt='Card image cap'><div class='card-body'>" +
+                                "<h5 class='card-title'>" + hotels[i] + "</h5>" +
+                                "<p class='card-text'>Tu mejor destino, disfruta de un" +
+                                "delicia gastronomica en compañia de los tuyos</p>" +
+                                "<a href='?controlador=Hotel&accion=showSiteAddress&id="
+                                + hotels[i] + "'" + "class='btn btn-primary'>"
+                                + "Ir</a></div></div>"
+                    }
+                    $("#sites").html($createHTML);
                 }, 3000);
 
             }
