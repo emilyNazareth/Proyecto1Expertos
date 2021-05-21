@@ -41,6 +41,7 @@
                     <div class="collapse navbar-collapse" id="navbarCollapse" style="background-color: #004063">
                         <div class="navbar-nav">
                             <a href="?controlador=Index&accion=mostrar" class="nav-item nav-link active change" style="color: white">Inicio</a>
+                            <a href="?controlador=Index&accion=showSiteMap" class="nav-item nav-link active change" style="color: white">Mapa del Sitio</a>
                             <a href="?controlador=Restaurant&accion=showRestaurantView" class="nav-item nav-link change" style="color: white">Restaurante</a>
                             <a href="?controlador=Hotel&accion=showHotelView" class="nav-item nav-link change" style="color: white">Hotel</a>
                             <a href="?controlador=Activity&accion=showActivityView" class="nav-item nav-link change" style="color: white">Tipo de actividad</a>
