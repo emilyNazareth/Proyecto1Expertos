@@ -13,4 +13,7 @@ class IndexController {
     public function mostrar() {
         $this->view->show("indexView.php", null);
     }
+    public function showSiteMap() {
+        $this->view->show("siteMapView.php", null);
+    }
 }
