@@ -32,14 +32,13 @@ include_once 'public/headerSections.php';
                 </select>
             </div>
             <div class="col-sm">
-                <label class="restaurant" for="hotelStars">
-                    Estrellas</label>
+                <label class="restaurant" for="duration">
+                    Duración</label>
                 <br>
-                <select class="form-select" id="hotelStars">
-                    <option value="1">1 a 2 estrellas</option>
-                    <option value="2">3 estrellas</option>
-                    <option value="3">4 estrellas</option>
-                    <option value="4">5 estrellas</option>
+                <select class="form-select" id="duration">
+                    <option value="1">Menos de 1 hora</option>
+                    <option value="2">De una a dos horas</option>
+                    <option value="3">Más de dos horas</option>
                 </select>
             </div>
         </div>
@@ -67,13 +66,13 @@ include_once 'public/headerSections.php';
                 </select>
             </div>
             <div class="col-sm">
-                <label class="restaurant" for="hotelFacility">
-                    Facilidad</label>
+                <label class="restaurant" for="distance">
+                    Distancia</label>
                 <br>
-                <select class="form-select" id="hotelFacility">
-                    <option value="1">Piscina</option>
-                    <option value="2">Jardín</option>
-                    <option value="2">Restaurante</option>
+                <select class="form-select" id="distance">
+                    <option value="1">Menos de 25 Km</option>
+                    <option value="2">De 25 a 50 Km </option>
+                    <option value="3">Más de 50 Km</option>
                 </select>
             </div>
         </div>

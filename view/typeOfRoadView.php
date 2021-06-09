@@ -16,9 +16,9 @@ include_once 'public/headerSections.php';
                 <br>
                 <select class="form-select" id="startingPoint">
                     <option value="1">Cartago</option>
-                    <option value="2">Turrialba</option>
+                    <option value="2">Heredia</option>
                     <option value="3">San José</option>
-                    <option value="4">Cervantes</option>
+                    <option value="4">Alajuela</option>
                 </select>
             </div>
             <div class="col-sm">
@@ -26,8 +26,8 @@ include_once 'public/headerSections.php';
                     Punto de llegada</label>
                 <br>
                 <select class="form-select" id="finalDestination">
-                    <option value="1">Turrialba</option>
-                    <option value="2">Cervantes</option>
+                    <option value="1">Heredia</option>
+                    <option value="2">Alajuela</option>
                     <option value="3">San José</option>
                     <option value="4">Cartago</option>
                 </select>
@@ -40,6 +40,28 @@ include_once 'public/headerSections.php';
                     <option value="1">Carretera</option>
                     <option value="2">Lastre</option>
                     <option value="3">Callejón</option>
+                </select>
+            </div>
+        </div>
+        <div style="margin-top: 5%" class="row">
+        <div class="col-sm">
+                <label class="restaurant" for="duration">
+                    Duración</label>
+                <br>
+                <select class="form-select" id="duration">
+                    <option value="1">Menos de 1 hora</option>
+                    <option value="2">De una a dos horas</option>
+                    <option value="3">Más de dos horas</option>
+                </select>
+            </div>
+            <div class="col-sm">
+                <label class="restaurant" for="distance">
+                    Distancia</label>
+                <br>
+                <select class="form-select" id="distance">
+                    <option value="1">Menos de 25 Km</option>
+                    <option value="2">De 25 a 50 Km </option>
+                    <option value="3">Más de 50 Km</option>
                 </select>
             </div>
         </div>

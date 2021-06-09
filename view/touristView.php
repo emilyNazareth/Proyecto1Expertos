@@ -58,13 +58,23 @@ include_once 'public/headerSections.php';
                 </select>
             </div>
             <div class="col-sm">
-                <label class="restaurant" for="budget">
-                    Presupuesto</label>
+                <label class="restaurant" for="duration">
+                    Duración</label>
                 <br>
-                <select class="form-select" id="budget">
-                    <option value="1">Bajo</option>
-                    <option value="2">Medio</option>
-                    <option value="3">Alto</option>
+                <select class="form-select" id="duration">
+                    <option value="1">Menos de 1 hora</option>
+                    <option value="2">De una a dos horas</option>
+                    <option value="3">Más de dos horas</option>
+                </select>
+            </div>
+            <div class="col-sm">
+                <label class="restaurant" for="distance">
+                    Distancia</label>
+                <br>
+                <select class="form-select" id="distance">
+                    <option value="1">Menos de 25 Km</option>
+                    <option value="2">De 25 a 50 Km </option>
+                    <option value="3">Más de 50 Km</option>
                 </select>
             </div>
         </div>

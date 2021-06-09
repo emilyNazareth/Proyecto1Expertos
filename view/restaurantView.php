@@ -32,29 +32,30 @@ include_once 'public/headerSections.php';
                 </select>
             </div>
             <div class="col-sm">
-                <label class="restaurant" for="restaurantStars">
-                    Estrellas</label>
+                <label class="restaurant" for="closingTime">
+                    Hora de cierre</label>
                 <br>
-                <select class="form-select" id="restaurantStars">
-                    <option value="1">1 a 2 estrellas</option>
-                    <option value="2">3 estrellas</option>
-                    <option value="3">4 estrellas</option>
-                    <option value="4">5 estrellas</option>
+                <select class="form-select" id="closingTime">
+                    <option value="1">5:00 pm</option>
+                    <option value="1">6:00 pm</option>
+                    <option value="2">7:00 pm</option>
+                    <option value="3">8:00 pm</option>
+                    <option value="4">9:00 pm</option>
                 </select>
             </div>
+            
         </div>
     </div>
     <div class="container">
         <div style="margin-top: 5%" class="row">
             <div class="col-sm">
-                <label class="restaurant" for="foodType">
-                    Tipo de comida</label>
+                <label class="restaurant" for="duration">
+                    Duración</label>
                 <br>
-                <select class="form-select" id="foodType">
-                    <option value="1">Típica</option>
-                    <option value="2">Rápida</option>
-                    <option value="3">Gourmet</option>
-                    <option value="4">Carnes</option>
+                <select class="form-select" id="duration">
+                    <option value="1">Menos de 1 hora</option>
+                    <option value="2">De una a dos horas</option>
+                    <option value="3">Más de dos horas</option>
                 </select>
             </div>
             <div class="col-sm">
@@ -68,34 +69,18 @@ include_once 'public/headerSections.php';
                 </select>
             </div>
             <div class="col-sm">
-                <label class="restaurant" for="restauranteType">
-                    Tipo de restaurante</label>
+                <label class="restaurant" for="distance">
+                    Distancia</label>
                 <br>
-                <select class="form-select" id="restauranteType">
-                    <option value="1">Familiar</option>
-                    <option value="2">Bar-Restaurante</option>
-                    <option value="2">Temático</option>
+                <select class="form-select" id="distance">
+                    <option value="1">Menos de 25 Km</option>
+                    <option value="2">De 25 a 50 Km </option>
+                    <option value="3">Más de 50 Km</option>
                 </select>
             </div>
         </div>
     </div>
 
-    <div class="container">
-        <div style="margin-top: 5%" class="row">
-            <div class="col-sm">
-                <label class="restaurant" for="closingTime">
-                    Hora de cierre</label>
-                <br>
-                <select class="form-select" id="closingTime">
-                    <option value="1">5:00 pm</option>
-                    <option value="1">6:00 pm</option>
-                    <option value="2">7:00 pm</option>
-                    <option value="3">8:00 pm</option>
-                    <option value="4">9:00 pm</option>
-                </select>
-            </div>
-        </div>
-    </div>
     <div style="margin-top: 100px">
         <input type="button" class="btn btn-danger" href="javascript:;" onclick="calculateRoutesRestaurant($('#initialDestination').val(),
                                $('#finalDestination').val(), $('#restaurantStars').val(),
