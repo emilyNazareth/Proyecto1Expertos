@@ -32,13 +32,13 @@ include_once 'public/headerSections.php';
                 </select>
             </div>
             <div class="col-sm">
-                <label class="restaurant" for="activityRequirement">
-                    Requerimiento</label>
+                <label class="restaurant" for="duration">
+                    Duración</label>
                 <br>
-                <select class="form-select" id="activityRequirement">
-                    <option value="1">Sólo mayores de edad</option>
-                    <option value="2">Todo público</option>
-                    <option value="3">Seguro Médico</option>
+                <select class="form-select" id="duration">
+                    <option value="1">Menos de 1 hora</option>
+                    <option value="2">De una a dos horas</option>
+                    <option value="3">Más de dos horas</option>
                 </select>
             </div>
         </div>
@@ -66,27 +66,17 @@ include_once 'public/headerSections.php';
                 </select>
             </div>
             <div class="col-sm">
-                <label class="restaurant" for="activityModality">
-                    Modalidad</label>
+                <label class="restaurant" for="distance">
+                    Distancia</label>
                 <br>
-                <select class="form-select" id="activityModality">
-                    <option value="1">Diurna</option>
-                    <option value="2">Nocturna</option>
+                <select class="form-select" id="distance">
+                    <option value="1">Menos de 25 Km</option>
+                    <option value="2">De 25 a 50 Km </option>
+                    <option value="3">Más de 50 Km</option>
                 </select>
             </div>
         </div>
-        <div style="margin-top: 5%" class="row">
-            <div class="col-sm">
-                <label class="restaurant" for="activityDuration">
-                    Duración</label>
-                <br>
-                <select class="form-select" id="activityDuration">
-                    <option value="1">menos de 1 hora</option>
-                    <option value="2">de 1 a 3 horas</option>
-                    <option value="3">mas de 3 horas</option>
-                </select>
-            </div>
-        </div>
+
     </div>
 
    
