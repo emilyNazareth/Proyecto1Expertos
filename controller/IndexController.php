@@ -16,4 +16,8 @@ class IndexController {
     public function showSiteMap() {
         $this->view->show("siteMapView.php", null);
     }
+    public function getRoute ()
+    {                 
+        $this->view->show("mapDetailRoute.php");
+    }
 }
