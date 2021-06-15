@@ -45,7 +45,7 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
                     $("#spinner").html("");
                     $("#result").html("Rutas recomendadas que se cargaran dinamicamente");
                     $createHTML = "";
-                    var restaurants = ["Tukasa", "Silvestre", "Rio"];
+                    var restaurants = ["Ruta 1", "RUTA 2", "RUTA 3"];
                     for (var i = 0; i < restaurants.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
                                 + "><img class='card-img-top' src='public/img/"
@@ -54,8 +54,8 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
                                 "<h5 class='card-title'>" + restaurants[i] + "</h5>" +
                                 "<p class='card-text'>Tu mejor destino, disfruta de un" +
                                 "delicia gastronomica en compañia de los tuyos</p>" +
-                                "<a href='?controlador=Restaurant&accion=showSiteAddress&id="
-                                + restaurants[i] + "'" + "class='btn btn-primary'>"
+                                "<a href='?controlador=Restaurant&accion=getRoute"
+                                 + "'" + "class='btn btn-primary'>"
                                 + "Ir</a></div></div>"
                     }
                     $("#sites").html($createHTML);
@@ -97,7 +97,7 @@ function calculateRoutesHotel(startingPoint, finalDestination,
                     $("#spinner").html("");
                     $("#result").html("Rutas recomendadas que se cargaran dinamicamente");
                     $createHTML = "";
-                    var hotels = ["Columbus", "ibza", "Hampton"];
+                    var hotels = ["Ruta 1", "RUTA 2", "RUTA 3"];
                     for (var i = 0; i < hotels.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
                                 + "><img class='card-img-top' src='public/img/"
@@ -106,8 +106,8 @@ function calculateRoutesHotel(startingPoint, finalDestination,
                                 "<h5 class='card-title'>" + hotels[i] + "</h5>" +
                                 "<p class='card-text'>Tu mejor destino, disfruta de un" +
                                 "delicia gastronomica en compañia de los tuyos</p>" +
-                                "<a href='?controlador=Hotel&accion=showSiteAddress&id="
-                                + hotels[i] + "'" + "class='btn btn-primary'>"
+                                "<a href='?controlador=Hotel&accion=getRoute"
+                                + "'" + "class='btn btn-primary'>"
                                 + "Ir</a></div></div>"
                     }
                     $("#sites").html($createHTML);
@@ -150,7 +150,7 @@ function calculateRoutesActivity(startingPoint, finalDestination,
                     $("#spinner").html("");
                     $("#result").html("Rutas recomendadas que se cargaran dinamicamente");
                     $createHTML = "";
-                    var hotels = ["Columbus", "ibza", "Hampton"];
+                    var hotels = ["Ruta 1", "RUTA 2", "RUTA 3"];
                     for (var i = 0; i < hotels.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
                                 + "><img class='card-img-top' src='public/img/"
@@ -159,8 +159,8 @@ function calculateRoutesActivity(startingPoint, finalDestination,
                                 "<h5 class='card-title'>" + hotels[i] + "</h5>" +
                                 "<p class='card-text'>Tu mejor destino, disfruta de un" +
                                 "delicia gastronomica en compañia de los tuyos</p>" +
-                                "<a href='?controlador=Hotel&accion=showSiteAddress&id="
-                                + hotels[i] + "'" + "class='btn btn-primary'>"
+                                "<a href='?controlador=Hotel&accion=getRoute"
+                                +"'" + "class='btn btn-primary'>"
                                 + "Ir</a></div></div>"
                     }
                     $("#sites").html($createHTML);
@@ -197,7 +197,7 @@ function calculateRecommendedSite(startingPoint, finalDestination) {
                     $("#spinner").html("");
                     $("#result").html("Rutas recomendadas que se cargaran dinamicamente");
                     $createHTML = "";
-                    var sites = ["Cerro Chirripó", "Parque Nacional Marino Ballena", "Refugio Nacional Gandoca-Manzanillo"];
+                    var sites = ["Ruta 1", "RUTA 2", "RUTA 3"];
                     for (var i = 0; i < sites.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
                                 + "><img class='card-img-top' src='public/img/"
@@ -206,8 +206,8 @@ function calculateRecommendedSite(startingPoint, finalDestination) {
                                 "<h5 class='card-title'>" + sites[i] + "</h5>" +
                                 "<p class='card-text'>Tu mejor destino, disfruta del " +
                                 "viaje en compañia de los tuyos</p>" +
-                                "<a href='?controlador=RecommendedSite&accion=showSiteAddress&id="
-                                + sites[i] + "'" + "class='btn btn-primary'>"
+                                "<a href='?controlador=RecommendedSite&accion=getRoute"
+                                + "'" + "class='btn btn-primary'>"
                                 + "Ir</a></div></div>"
                     }
                     $("#sites").html($createHTML);
@@ -248,7 +248,7 @@ function calculateRoutesTourist(startingPoint, finalDestination, typeTourist, ag
                     $("#spinner").html("");
                     $("#result").html("Rutas recomendadas que se cargaran dinamicamente");
                     $createHTML = "";
-                    var sites = ["Parque Nacional Tapantí - Macizo de la Muerte", "Tamarindo", "Playa Avellana"];
+                    var sites = ["Ruta 1", "RUTA 2", "RUTA 3"];
                     for (var i = 0; i < sites.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
                                 + "><img class='card-img-top' src='public/img/"
@@ -257,8 +257,8 @@ function calculateRoutesTourist(startingPoint, finalDestination, typeTourist, ag
                                 "<h5 class='card-title'>" + sites[i] + "</h5>" +
                                 "<p class='card-text'>Tu mejor destino, disfruta del " +
                                 "viaje en compañia de los tuyos</p>" +
-                                "<a href='?controlador=Tourist&accion=showSiteAddress&id="
-                                + sites[i] + "'" + "class='btn btn-primary'>"
+                                "<a href='?controlador=Tourist&accion=getRoute"
+                                + "'" + "class='btn btn-primary'>"
                                 + "Ir</a></div></div>"
                     }
                     $("#sites").html($createHTML);
@@ -281,7 +281,7 @@ function calculateServiceEstablishments(startingPoint) {
             $("#result").html("");
             $("#spinner").html(" <div class='spinner-border text-primary' style='margin-top: 5%' id='spinner' role='status'></div>");
         },
-        success: function (response) {
+        success: function (response) {            
             /*Set the span label result*/
             if (response === 0) {
                 $("#result").html("<div class='alert alert-danger'>*No \n\
@@ -291,7 +291,7 @@ function calculateServiceEstablishments(startingPoint) {
                     $("#spinner").html("");                    
                     $("#result").html("Rutas recomendadas que se cargarán dinámicamente");
                     $createHTML = "";
-                    var serviceEstablishments = ["JSMTurrialba", "Delta", "UNO"];
+                    var serviceEstablishments = ["Ruta 1", "RUTA 2", "RUTA 3"];
                     for (var i = 0; i < serviceEstablishments.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
                             + "><img class='card-img-top' src='public/img/"
@@ -300,8 +300,8 @@ function calculateServiceEstablishments(startingPoint) {
                             "<h5 class='card-title'>" + serviceEstablishments[i] + "</h5>" +
                             "<p class='card-text'>Una de las opciones cercanas " +
                             "sobre establecimientos de servicios</p>" +
-                            "<a href='?controlador=ServiceEstablishments&accion=getServiceEstablishments&id=" 
-                            +  serviceEstablishments[i] + "'" + "class='btn btn-primary'>" 
+                            "<a href='?controlador=ServiceEstablishments&accion=getRoute"+ 
+                            "'" + "class='btn btn-primary'>" 
                             + "Ir</a></div></div>"
                     }
                     $("#sites").html($createHTML);
@@ -337,7 +337,7 @@ function calculateTypeOfRoad(startingPoint, finalDestination, typeOfRoad) {
                     $("#spinner").html("");
                     $("#result").html("Rutas recomendadas que se cargarán dinámicamente");
                     $createHTML = "";
-                    var serviceEstablishments = ["Ujarrás", "Sanatorio-Durán", "Prusia"];
+                    var serviceEstablishments = ["Ruta 1", "RUTA 2", "RUTA 3"];
                     for (var i = 0; i < serviceEstablishments.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
                             + "><img class='card-img-top' src='public/img/"
@@ -346,8 +346,8 @@ function calculateTypeOfRoad(startingPoint, finalDestination, typeOfRoad) {
                             "<h5 class='card-title'>" + serviceEstablishments[i] + "</h5>" +
                             "<p class='card-text'>Una de las mejores opciones  " +
                             "para disfrutar en este día</p>" +
-                            "<a href='?controlador=TypeOfRoad&accion=getByTypeOfRoad&id=" 
-                            +  serviceEstablishments[i] + "'" + "class='btn btn-primary'>" 
+                            "<a href='?controlador=TypeOfRoad&accion=getRoute" 
+                            + "'" + "class='btn btn-primary'>" 
                             + "Ir</a></div></div>"
                     }
                     $("#sites").html($createHTML);

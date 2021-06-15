@@ -27,4 +27,8 @@ class ActivityController
          */
         echo "Buscando Hotel";
     }
+    public function getRoute ()
+    {                 
+        $this->view->show("mapDetailRoute.php");
+    }
 }

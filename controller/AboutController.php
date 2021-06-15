@@ -11,4 +11,8 @@ class AboutController {
     public function aboutView() {
         $this->view->show("aboutView.php", null);
     }
+    public function getRoute ()
+    {                 
+        $this->view->show("mapDetailRoute.php");
+    }
 }

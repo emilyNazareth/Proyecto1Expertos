@@ -43,4 +43,8 @@ class TouristController
 
         $this->view->show("addressSiteView.php", $maps);
     }
+    public function getRoute ()
+    {                 
+        $this->view->show("mapDetailRoute.php");
+    }
 }
