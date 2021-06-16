@@ -51,6 +51,7 @@ function displayRoute(origin, destination, service, display) {
     (result, status) => {
       if (status === "OK" && result) {
         display.setDirections(result);
+        
       } else {
         alert("Could not display directions due to: " + status);
       }
@@ -71,4 +72,27 @@ function computeTotalDistance(result) {
   }
   total = total / 1000;
   document.getElementById("total").innerHTML = total + " km";
+  document.querySelector('body').append(document.createElement('footer'));
+  const f = document.querySelector('footer');
+  f.classList.add('text-muted');
+  f.innerHTML = '<center>'+
+  ' <div id="nameEmail" class="container">'+
+       '<p style="font-family: \'Lobster Two\'; font-size: 20px;">Desarrollado por: Info Team</p>'+                                                   
+       '<p>Sitio web con fines académicos</p> '+
+       '<p> 2021</p'+
+   '</div>'+
+'</center>';
+  /*$('right-panel').append(' <footer  class="text-muted" style="margin-top: 15%;">'+
+  '<center>'+
+     ' <div id="nameEmail" class="container">'+
+          '<p style="font-family: \'Lobster Two\'; font-size: 20px;">Desarrollado por: Info Team</p>'+                                                   
+          '<p>Sitio web con fines académicos</p> '+
+          '<p> 2021</p'+
+          '<a id="logoa" href="index.html">'+
+              '<img id="imgLogoFooter" src="public/img/logo.png" alt="Tarea 1" width="300"'+
+                  ' height="100">'+
+          '</a>'+
+      '</div>'+
+  '</center>'+
+'</footer>');*/
 }
