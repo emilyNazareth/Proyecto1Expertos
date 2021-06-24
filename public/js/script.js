@@ -60,8 +60,7 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
                     }
                     $("#sites").html($createHTML);
                 }, 3000);
-
-
+        
             }
         }
     });
@@ -69,7 +68,7 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
 
 function calculateRoutesHotel(startingPoint, finalDestination,
         hotelStars, hotelType, hotelPrice, hotelFacility) {
-
+            
     var parameters = {
         "startingPoint": startingPoint,
         "finalDestination": finalDestination,
