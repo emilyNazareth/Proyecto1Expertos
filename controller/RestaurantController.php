@@ -69,6 +69,7 @@ class RestaurantController
         echo  json_encode($allRoutes);
     }
 
+    
     public function generateRoutes($dataSetDataBase, $routesId)
     {
         $idsRoute = array_keys($routesId);
