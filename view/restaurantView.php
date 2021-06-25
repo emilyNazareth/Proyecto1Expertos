@@ -16,7 +16,7 @@ include_once 'public/headerSections.php';
                 <select class="form-select" id="initialDestination">
                     <option value="Cartago">Cartago</option>
                     <option value="Heredia">Heredia</option>
-                    <option value="San Jose">San José</option>
+                    <option value="San_Jose">San José</option>
                     <option value="Alajuela">Alajuela</option>
                 </select>
             </div>
@@ -27,7 +27,7 @@ include_once 'public/headerSections.php';
                 <select class="form-select" id="finalDestination">
                     <option value="Cartago">Cartago</option>
                     <option value="Heredia">Heredia</option>
-                    <option value="San Jose">San José</option>
+                    <option value="San_Jose">San José</option>
                     <option value="Alajuela">Alajuela</option>
                 </select>
             </div>

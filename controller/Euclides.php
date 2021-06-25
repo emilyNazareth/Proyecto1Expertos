@@ -92,14 +92,15 @@ class Euclides
         if ($value == 'cheap') {
             return 1;
         } else if ($value == 'regular') {
-            return 2;       
+            return 2;
+        }
         return 3;
     }
 
     /**
      * Transforms the sex type from string to numeric so that it can 
      * be used in calculation.
-     * @param string $value type of sex. 
+     * @param int $value type of sex. 
      * @return int  return the numerical value according to the sex name. 
      */
     public function changeKmValue($value)
