@@ -87,16 +87,13 @@ class Euclides
      * @param string $value name of learning style.
      * @return int  return the numerical value according to the learning name. 
      */
-    public function changeStyleValue($value)
+    public function changePriceValue($value)
     {
-        if ($value == 'DIVERGENTE') {
+        if ($value == 'cheap') {
             return 1;
-        } else if ($value == 'CONVERGENTE') {
-            return 2;
-        } else if ($value == 'ASIMILADOR') {
-            return 3;
-        }
-        return 4;
+        } else if ($value == 'regular') {
+            return 2;       
+        return 3;
     }
 
     /**
@@ -105,12 +102,29 @@ class Euclides
      * @param string $value type of sex. 
      * @return int  return the numerical value according to the sex name. 
      */
-    public function changeSexValue($value)
+    public function changeKmValue($value)
     {
-        if ($value == 'F') {
+        if ($value < 25) {
             return 1;
+        } else if ($value > 25 && $value < 50) {
+            return 2;
         }
-        return 2;
+        return 3;
+    }
+    /**
+     * Transforms the sex type from string to numeric so that it can 
+     * be used in calculation.
+     * @param string $value type of sex. 
+     * @return int  return the numerical value according to the sex name. 
+     */
+    public function changeDurationValue($value)
+    {
+        if ($value < 60) {
+            return 1;
+        } else if ($value > 60 && $value < 120) {
+            return 2;
+        }
+        return 3;
     }
 
     /**

@@ -14,15 +14,14 @@ function isFieldEmpty(fieldValue) {
 
 
 function calculateRoutesRestaurant($initialDestination, $finalDestination,
-    $restaurantStars, $foodType, $price, $restauranteType, $closingTime) {
+    $duration, $distance, $price, $closingTime) {
 
     var parameters = {
         "initialDestination": $initialDestination,
         "finalDestination": $finalDestination,
-        "restaurantStars": $restaurantStars,
-        "foodType": $foodType,
-        "price": $price,
-        "restauranteType": $restauranteType,
+        "duration": $duration,
+        "distance": $distance,
+        "price": $price,        
         "closingTime": $closingTime
     };
 
@@ -36,6 +35,7 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
         },
         success: function (response) {
             /*Set the span label result*/
+            console.log(response);
             if (response === 0) {
                 $("#result").html("<div class='alert alert-danger'>*No \n\
                     se encontraron registros</div>");

@@ -20,9 +20,34 @@ class RestaurantController
 
     public function getRoutesByRestaurant()
     {
-
-        echo "Buscando";
-    }
+        require 'model/RestaurantModel.php';
+        require 'controller/Euclides.php';
+        $euclidesAlgorithm = new Euclides();
+        $restaurants = RestaurantModel::singleton();
+        $resultDataBaseSet = $restaurants->getRestaurants($_POST['initialDestination'],$_POST['finalDestination']);
+        $dataUserSelected['origin_province'] = $_POST['initialDestination'];
+        $dataUserSelected['final_province'] = $_POST['finalDestination'];
+        $dataUserSelected['duration_to_'.$_POST['initialDestination']] = $_POST['duration'];
+        $dataUserSelected['distance_to_'.$_POST['initialDestination']] = $_POST['distance'];
+        $dataUserSelected['price'] = $_POST['price'];        
+        $dataUserSelected['close_time'] = $_POST['$closingTime'];
+        print_r('duration_to_'.$_POST['initialDestination']);
+        /*foreach ($resultDataBaseSet as &$resultDb) {
+            $resultDb->price =
+                $euclidesAlgorithm->changePriceValue($resultDb->price);
+            $resultDb->'duration_to_'.$_POST['initialDestination']=
+                $euclidesAlgorithm->changeDurationValue($resultDb->'duration_to_'.$_POST['initialDestination']);
+                $resultDb->'distance_to_'.$_POST['initialDestination']=
+                $euclidesAlgorithm->changeKmValue($resultDb->'distance_to_'.$_POST['initialDestination']);
+            }
+        
+        $routes = $euclidesAlgorithm->calculateDistance(
+            $dataUserSelected,
+            $resultDataBaseSet,
+            ['origin_province', 'final_province', 'duration_to_'.$_POST['initialDestination'],'distance_to_'.$_POST['initialDestination'], 'price','close_time']
+        );
+        echo $routes;*/
+    }   
 
     public function showSiteAddress()
     {
