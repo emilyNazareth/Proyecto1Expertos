@@ -20,17 +20,40 @@ class RestaurantController
 
     public function getRoutesByRestaurant()
     {
-        /**
-         * send the stringHTML to javascript ajax to show the result in the view
-         */
-        echo "Buscando";
-    }
+        require 'model/RestaurantModel.php';
+        require 'controller/Euclides.php';
+        $euclidesAlgorithm = new Euclides();
+        $restaurants = RestaurantModel::singleton();
+        $resultDataBaseSet = $restaurants->getRestaurants($_POST['initialDestination'],$_POST['finalDestination']);
+        $dataUserSelected['origin_province'] = $_POST['initialDestination'];
+        $dataUserSelected['final_province'] = $_POST['finalDestination'];
+        $dataUserSelected['duration_to_'.$_POST['initialDestination']] = $_POST['duration'];
+        $dataUserSelected['distance_to_'.$_POST['initialDestination']] = $_POST['distance'];
+        $dataUserSelected['price'] = $_POST['price'];        
+        $dataUserSelected['close_time'] = $_POST['$closingTime'];
+        print_r('duration_to_'.$_POST['initialDestination']);
+        /*foreach ($resultDataBaseSet as &$resultDb) {
+            $resultDb->price =
+                $euclidesAlgorithm->changePriceValue($resultDb->price);
+            $resultDb->'duration_to_'.$_POST['initialDestination']=
+                $euclidesAlgorithm->changeDurationValue($resultDb->'duration_to_'.$_POST['initialDestination']);
+                $resultDb->'distance_to_'.$_POST['initialDestination']=
+                $euclidesAlgorithm->changeKmValue($resultDb->'distance_to_'.$_POST['initialDestination']);
+            }
+        
+        $routes = $euclidesAlgorithm->calculateDistance(
+            $dataUserSelected,
+            $resultDataBaseSet,
+            ['origin_province', 'final_province', 'duration_to_'.$_POST['initialDestination'],'distance_to_'.$_POST['initialDestination'], 'price','close_time']
+        );
+        echo $routes;*/
+    }   
 
     public function showSiteAddress()
     {
         $id = $_GET['id'];
         $maps = array(
-            'iframe'            
+            'iframe'
         );
         if ($id == "Tukasa") {
             $maps['iframe'] = "'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.799259300616!2d-83.94412668500046!3d9.867202278013572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0dfe68706b7af%3A0xfbec888af13b9bee!2sTUKASA%20Caf%C3%A9%20Paseo%20Metr%C3%B3poli!5e0!3m2!1ses!2scr!4v1621371389862!5m2!1ses!2scr' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy'";
@@ -42,8 +65,20 @@ class RestaurantController
 
         $this->view->show("addressSiteView.php", $maps);
     }
-    public function getRoute ()
-    {                 
+    public function getRoute()
+    {
+        //conect   with database and get restaurant with id =   $_POST['id']; 
+        //send info of route to go that restaurant
+        $route = array(
+            'restaurantName' => "La Fabbrica",
+            'lat' => 10.0160347003013,
+            'lng' => -84.2079873580799,
+        );
+        echo  json_encode($route);
+    }
+
+    public function showRestaurantRouteView()
+    {
         $this->view->show("mapDetailRoute.php");
     }
 }

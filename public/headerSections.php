@@ -2,9 +2,9 @@
 <html lang="es">
 
 <head>
-    <title>Tarea 2</title>
+    <title>Turista Inteligente</title>
     <meta charset="utf-8" />
-    <meta name="description" content="Tarea 2 Algoritmo de Bayes" />
+    <meta name="description" content="Turista Inteligente" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="public/css/style.css" />
     <link rel="stylesheet" type="text/css" href="public/css/maps.css" />
@@ -16,10 +16,7 @@
     <script src="public/js/script.js" type="text/javascript"></script>
     <script src="public/js/maps.js" type="text/javascript"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-      <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_ql49R0d20IhxQAb5FqDeEdVbK4R2tiA&callback=initMap&libraries=&v=weekly"
-      async
-    ></script>
+
 
     <!--Galery-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
