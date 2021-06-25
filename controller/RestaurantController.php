@@ -20,6 +20,7 @@ class RestaurantController
 
     public function getRoutesByRestaurant()
     {
+        $allRoutes = [];
         require 'model/RestaurantModel.php';
         require 'controller/Euclides.php';
         $euclidesAlgorithm = new Euclides();
@@ -45,9 +46,42 @@ class RestaurantController
             $resultDataBaseSet,
             [$durationString, $distanceString, 'price', 'close_time']
         );
-        echo json_encode($routes);
+        $arrayRoutes = json_decode(json_encode($routes), true);
+        asort($arrayRoutes);
+        $route1 = array_slice($arrayRoutes, 1, 3, true);
+        $route2 = array_slice($arrayRoutes, 4, 3, true);
+        $route3 = array_slice($arrayRoutes, 7, 3, true);
+        $routesInformation1 = $this->generateRoutes(
+            $resultDataBaseSet,
+            $route1
+        );
+        $routesInformation2 = $this->generateRoutes(
+            $resultDataBaseSet,
+            $route2
+        );
+        $routesInformation3 = $this->generateRoutes(
+            $resultDataBaseSet,
+            $route3
+        );
+        $allRoutes['route1'] = $routesInformation1;
+        $allRoutes['route2'] =  $routesInformation2;
+        $allRoutes['route3'] = $routesInformation3;
+        echo  json_encode($allRoutes);
     }
 
+    public function generateRoutes($dataSetDataBase, $routesId)
+    {
+        $idsRoute = array_keys($routesId);
+        $routesInformation = [];
+        foreach ($dataSetDataBase as $result) {
+            foreach ($idsRoute as $resultId) {
+                if ($resultId == $result->id) {
+                    array_push($routesInformation, $result);
+                }
+            }
+        }
+        return   $routesInformation;
+    }
     public function showSiteAddress()
     {
         $id = $_GET['id'];

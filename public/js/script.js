@@ -21,7 +21,7 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
         "finalDestination": $finalDestination,
         "duration": $duration,
         "distance": $distance,
-        "price": $price,        
+        "price": $price,
         "closingTime": $closingTime
     };
 
@@ -35,8 +35,6 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
         },
         success: function (response) {
             /*Set the span label result*/
-            console.log(response);
-            
             if (response === 0) {
                 $("#result").html("<div class='alert alert-danger'>*No \n\
                     se encontraron registros</div>");
@@ -61,8 +59,13 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
 
                         // <button type="button" onclick="cleanFormRegisterProfessional()" class="btn btn-success btn-sm" id="btn-cancel">Cancelar</button>
                     }
+                    test = JSON.parse(response);
+                    for (var i = 0; i < test.length; i++) {                       
+                        console.log(test['route1'])
+                    }
+
                     $("#sites").html($createHTML);
-                }, 3000);
+                }, 1000);
             }
         }
     });

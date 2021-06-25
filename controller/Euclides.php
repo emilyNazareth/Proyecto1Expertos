@@ -25,8 +25,10 @@ class Euclides
         $dataDataBase,
         $differencesToEvaluate
     ) {
+        $routes = [];
+        $routes['differences'] = [];
         $shorterDistanceValue = 30000;
-        $resultTuple = "";
+
         /**
          * get the data from the database one by one.
          */
@@ -48,16 +50,12 @@ class Euclides
              *subtraction.
              */
             $squareOfDifferencesSum = sqrt($differencesSumValue);
-
-            /**
-             *evaluation to select the result more proxime to 0.
-             */
-            if ($squareOfDifferencesSum < $shorterDistanceValue) {
-                $shorterDistanceValue = $squareOfDifferencesSum;
-                $resultTuple = $values;
+            if (!isset($routes[$values->id])){
+                $routes[$values->id] = [];                
             }
+            array_push($routes[$values->id],  $squareOfDifferencesSum);            
         }
-        return $resultTuple;
+        return $routes;
     }
 
     /**
@@ -126,6 +124,18 @@ class Euclides
             return 2;
         }
         return 3;
+    }
+
+    public function changeProvinceValue($value)
+    {
+        if ($value == 'Cartago') {
+            return 1;
+        } else if ($value == 'Heredia') {
+            return 2;
+        } else if ($value == 'San Jose') {
+            return 3;
+        }
+        return 4;
     }
 
     /**
