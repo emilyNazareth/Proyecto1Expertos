@@ -20,6 +20,7 @@ class RestaurantController
 
     public function getRoutesByRestaurant()
     {
+        $allRoutes = [];
         require 'model/RestaurantModel.php';
         require 'controller/Euclides.php';
         $euclidesAlgorithm = new Euclides();
@@ -45,9 +46,43 @@ class RestaurantController
             $resultDataBaseSet,
             [$durationString, $distanceString, 'price', 'close_time']
         );
-        echo json_encode($routes);
+        $arrayRoutes = json_decode(json_encode($routes), true);
+        asort($arrayRoutes);
+        $route1 = array_slice($arrayRoutes, 1, 3, true);
+        $route2 = array_slice($arrayRoutes, 4, 3, true);
+        $route3 = array_slice($arrayRoutes, 7, 3, true);
+        $routesInformation1 = $this->generateRoutes(
+            $resultDataBaseSet,
+            $route1
+        );
+        $routesInformation2 = $this->generateRoutes(
+            $resultDataBaseSet,
+            $route2
+        );
+        $routesInformation3 = $this->generateRoutes(
+            $resultDataBaseSet,
+            $route3
+        );
+        $allRoutes['route0'] = $routesInformation1;
+        $allRoutes['route1'] =  $routesInformation2;
+        $allRoutes['route2'] = $routesInformation3;
+        echo  json_encode($allRoutes);
     }
 
+    
+    public function generateRoutes($dataSetDataBase, $routesId)
+    {
+        $idsRoute = array_keys($routesId);
+        $routesInformation = [];
+        foreach ($dataSetDataBase as $result) {
+            foreach ($idsRoute as $resultId) {
+                if ($resultId == $result->id) {
+                    array_push($routesInformation, $result);
+                }
+            }
+        }
+        return   $routesInformation;
+    }
     public function showSiteAddress()
     {
         $id = $_GET['id'];
@@ -66,14 +101,15 @@ class RestaurantController
     }
     public function getRoute()
     {
-        //conect   with database and get restaurant with id =   $_POST['id']; 
-        //send info of route to go that restaurant
-        $route = array(
+        $id =   $_POST['id']; 
+        //$routes = json_decode( $_POST['routes']); 
+        $routes =  $_POST['routes']; 
+        /*$route = array(
             'restaurantName' => "La Fabbrica",
             'lat' => 10.0160347003013,
             'lng' => -84.2079873580799,
-        );
-        echo  json_encode($route);
+        );*/
+        echo  $routes['route0'];
     }
 
     public function showRestaurantRouteView()

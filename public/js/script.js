@@ -21,10 +21,12 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
         "finalDestination": $finalDestination,
         "duration": $duration,
         "distance": $distance,
-        "price": $price,        
+        "price": $price,
         "closingTime": $closingTime
     };
 
+    localStorage.setItem('initialDestination', $initialDestination);
+    localStorage.setItem('finalDestination', $finalDestination);
     $.ajax({
         data: parameters,
         url: '?controlador=Restaurant&accion=getRoutesByRestaurant',
@@ -35,8 +37,6 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
         },
         success: function (response) {
             /*Set the span label result*/
-            console.log(response);
-            
             if (response === 0) {
                 $("#result").html("<div class='alert alert-danger'>*No \n\
                     se encontraron registros</div>");
@@ -46,6 +46,12 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
                     $("#spinner").html("");
                     $("#result").html("Rutas recomendadas que se cargaran dinamicamente");
                     $createHTML = "";
+
+                    localStorage.setItem("routes", response);
+
+                    /*routes['route1'].forEach(element => {
+                         console.table(element);    
+                     });*/
                     var restaurants = ["Ruta 1", "RUTA 2", "RUTA 3"];
                     for (var i = 0; i < restaurants.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
@@ -55,14 +61,18 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
                             "<h5 class='card-title'>" + restaurants[i] + "</h5>" +
                             "<p class='card-text'>Tu mejor destino, disfruta de una" +
                             "delicia gastronomica en compañia de los tuyos</p>" +
-                            "<button type='button' onclick='createRoute(1)'" +
+                            "<button type='button' onclick='createRoute(`route" + i + "`)'" +
                             "class='btn btn-primary'>Ir</button>" + "</div></div>";
                         //    + "<button type='button' onclick='createRoute()' class=class='btn btn-primary'>Ir</button>
 
                         // <button type="button" onclick="cleanFormRegisterProfessional()" class="btn btn-success btn-sm" id="btn-cancel">Cancelar</button>
                     }
+
+
                     $("#sites").html($createHTML);
-                }, 3000);
+                }, 1000);
+
+
             }
         }
     });
@@ -361,26 +371,52 @@ function calculateTypeOfRoad(startingPoint, finalDestination, typeOfRoad) {
 
 function createRoute(id) {
 
-    var parametros = { "id": id };
 
-    $.ajax({
-        data: parametros,
-        url: '?controlador=Restaurant&accion=getRoute',
-        type: 'post',
-        dataType: 'json',
-        success: function (response) {
-            console.log(response.restaurantName);
-            console.log(response.lat);
-            console.log(response.lng);
-            window.location.replace("?controlador=Restaurant&accion=showRestaurantRouteView");
+    routes = JSON.parse(localStorage.getItem("routes"));
+    console.table(routes[id]);
 
-            window.localStorage.setItem("latTest", response.lat);
-            window.localStorage.setItem("lngTest", response.lng);
-        }
-    });
+    if (localStorage.getItem("initialDestination") === "Heredia") {
+        localStorage.setItem('intialPointLat', 9.9981466);
+        localStorage.setItem('intialPointLong', -84.121953);
+    } else if (localStorage.getItem("initialDestination") === "Cartago") {
+        localStorage.setItem('intialPointLat', 9.864847975868312);
+        localStorage.setItem('intialPointLong', -83.91976879226273);
+    } else if (localStorage.getItem("initialDestination") === "San_Jose") {
+        localStorage.setItem('intialPointLat', 9.933499874895771);
+        localStorage.setItem('intialPointLong', -84.0795456753859);
+    } else {
+        localStorage.setItem('intialPointLat', 10.016918331611171);
+        localStorage.setItem('intialPointLong', -84.21299048083986);
+    }
+
+    if (localStorage.getItem("finalDestination") === "Heredia") {
+        localStorage.setItem('finalPointLat', 9.9981466);
+        localStorage.setItem('finalPointLong', -84.121953);
+    } else if (localStorage.getItem("finalDestination") === "Cartago") {
+        localStorage.setItem('finalPointLat', 9.864847975868312);
+        localStorage.setItem('finalPointLong', -83.91976879226273);
+    } else if (localStorage.getItem("finalDestination") === "San_Jose") {
+        localStorage.setItem('finalPointLat', 9.933499874895771);
+        localStorage.setItem('finalPointLong', -84.0795456753859);
+    } else {
+        localStorage.setItem('finalPointLat', 10.016918331611171);
+        localStorage.setItem('finalPointLong', -84.21299048083986);
+    }
 
 
+    localStorage.setItem('finalPointLat', 9.864945048401639);
+    localStorage.setItem('finalPointLong', -83.9163496422722);
 
+    localStorage.setItem('firstPlaceLat', routes[id][0].lat_site);
+    localStorage.setItem('firstPlaceLong', routes[id][0].long_site);
+
+    localStorage.setItem('secondPlaceLat', routes[id][1].lat_site);
+    localStorage.setItem('secondPlaceLong', routes[id][1].long_site);
+
+    localStorage.setItem('thirdPlaceLat', routes[id][2].lat_site);
+    localStorage.setItem('thirdPlaceLong', routes[id][2].long_site);
+
+    window.location.replace("?controlador=Restaurant&accion=showRestaurantRouteView");
 
 }
 
