@@ -138,6 +138,16 @@ class Euclides
         return 4;
     }
 
+    public function changeHotelValue($value)
+    {
+        if ($value == 'Mountain') {
+            return 1;
+        } else if ($value == 'Beach') {
+            return 2;
+        }
+        return 3;
+    }
+
     /**
      * Transforms the campus from string to numeric so that it can 
      * be used in calculation.
