@@ -63,9 +63,9 @@ class RestaurantController
             $resultDataBaseSet,
             $route3
         );
-        $allRoutes['route1'] = $routesInformation1;
-        $allRoutes['route2'] =  $routesInformation2;
-        $allRoutes['route3'] = $routesInformation3;
+        $allRoutes['route0'] = $routesInformation1;
+        $allRoutes['route1'] =  $routesInformation2;
+        $allRoutes['route2'] = $routesInformation3;
         echo  json_encode($allRoutes);
     }
 
@@ -101,14 +101,15 @@ class RestaurantController
     }
     public function getRoute()
     {
-        //conect   with database and get restaurant with id =   $_POST['id']; 
-        //send info of route to go that restaurant
-        $route = array(
+        $id =   $_POST['id']; 
+        //$routes = json_decode( $_POST['routes']); 
+        $routes =  $_POST['routes']; 
+        /*$route = array(
             'restaurantName' => "La Fabbrica",
             'lat' => 10.0160347003013,
             'lng' => -84.2079873580799,
-        );
-        echo  json_encode($route);
+        );*/
+        echo  $routes['route0'];
     }
 
     public function showRestaurantRouteView()

@@ -18,10 +18,13 @@ function initMap() {
   });
   displayRoute(
     {
-      lat: Number.parseFloat(window.localStorage.getItem("latTest")),
-      lng: Number.parseFloat(window.localStorage.getItem("lngTest"))
+      lat: Number.parseFloat(localStorage.getItem("intialPointLat")),
+      lng: Number.parseFloat(localStorage.getItem("intialPointLong"))
     },
-    { lat: 9.867059081908426, lng: -83.92810832094152 },
+    { 
+      lat: Number.parseFloat(localStorage.getItem("finalPointLat")),
+      lng: Number.parseFloat(localStorage.getItem("finalPointLong"))
+    },
     directionsService,
     directionsRenderer
   );
@@ -42,8 +45,27 @@ function displayRoute(origin, destination, service, display) {
       origin: origin,
       destination: destination,
       waypoints: [
-        { location: { lat: 9.896816730647581, lng: -83.78580388729162 } },
-        { location: { lat: 9.819314765076408, lng: -83.85754995712739 } },
+        { 
+          location: 
+          { 
+            lat: Number.parseFloat(localStorage.getItem("firstPlaceLat")),
+            lng: Number.parseFloat(localStorage.getItem("firstPlaceLong"))
+          } 
+        },
+        { 
+          location: 
+          { 
+            lat: Number.parseFloat(localStorage.getItem("secondPlaceLat")),
+            lng: Number.parseFloat(localStorage.getItem("secondPlaceLong"))
+          }
+        },
+        { 
+          location: 
+          { 
+            lat: Number.parseFloat(localStorage.getItem("thirdPlaceLat")),
+            lng: Number.parseFloat(localStorage.getItem("thirdPlaceLong"))
+          }
+        },
       ],
       travelMode: google.maps.TravelMode.DRIVING,
       avoidTolls: true,
