@@ -36,6 +36,7 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
         success: function (response) {
             /*Set the span label result*/
             console.log(response);
+            
             if (response === 0) {
                 $("#result").html("<div class='alert alert-danger'>*No \n\
                     se encontraron registros</div>");
