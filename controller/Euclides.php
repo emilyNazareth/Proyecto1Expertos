@@ -147,6 +147,15 @@ class Euclides
         }
         return 3;
     }
+    public function changeRoadTypeValue($value)
+    {
+        if ($value == 'Pavement') {
+            return 1;
+        } else if ($value == 'Stone') {
+            return 2;
+        }
+        return 3;
+    }
 
     /**
      * Transforms the campus from string to numeric so that it can 

@@ -20,6 +20,7 @@ include_once 'public/headerSections.php';
 
 <h2 id="titlesMap">
   Seguí la ruta a tu destino</h2>
+
 <div id="map"></div>
 <div class="right__panel" id="right-panel">
   <p>Total Distance: <span id="total"></span></p>
