@@ -366,12 +366,9 @@ function calculateTypeOfRoad(startingPoint, finalDestination, typeOfRoad, durati
                 $("#sites").html("");
                 timerId = setInterval(function () {
                     $("#spinner").html("");
-                    $("#result").html("Rutas recomendadas que se cargarán dinámicamente");
-                    $createHTML = "";
-
-
-                    localStorage.setItem("routes", response);
-
+                    $("#result").html("Rutas encontradas:");
+                    $createHTML = "";  
+                                    
                     console.log(response);
                     var hotels = ["Ruta 1", "Ruta 2", "Ruta 3"];
                     for (var i = 0; i < hotels.length; i++) {
@@ -380,17 +377,30 @@ function calculateTypeOfRoad(startingPoint, finalDestination, typeOfRoad, durati
                             + hotels[i] + ".jpg' width='300' height='300'" +
                             "alt='Card image cap'><div class='card-body'>" +
                             "<h5 class='card-title'>" + hotels[i] + "</h5>" +
-                            "<p class='card-text'>Ruta ideal para tú camino preferido</p>" +
+                            "<p class='card-text'>"+ getPlacesRoute('route' + i)  +"</p>" +
                             "<button type='button' onclick='createRouteHotel(`route" + i + "`)'" +
                             "class='btn btn-primary'>Ir</button>" + "</div></div>";
 
-                    }
+                    }//getPlacesRoute('route' + i) 
                     $("#sites").html($createHTML);
                 }, 1000);
 
             }
         }
     });
+}
+function getPlacesRoute(id) {
+    routes = JSON.parse(localStorage.getItem("routes"));    
+    places = "";
+
+    places += routes[id][0].name;
+    places += ", "
+    places += routes[id][1].name;
+    places += ", \n"
+    places += routes[id][2].name;
+    places += "."
+
+    return places;
 }
 
 function createRoute(id) {

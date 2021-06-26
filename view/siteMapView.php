@@ -6,7 +6,6 @@ include_once 'public/headerSections.php';
         Mapa del sitio
 
     </h2>
-    <button onclick="goBack()">Go Back</button>
     <div class="" style="margin-top: 0px">
         <br>
         Inicio
@@ -38,11 +37,6 @@ include_once 'public/headerSections.php';
          height="250"/>
 
 </div>
-<script>
-function goBack() {
-  window.history.back();
-}
-</script>
 
 
 <?php
