@@ -25,8 +25,8 @@ class RestaurantController
         require 'controller/Euclides.php';
         $euclidesAlgorithm = new Euclides();
         $restaurants = RestaurantModel::singleton();
-        $resultDataBaseSet = $restaurants->getRestaurants($_POST['initialDestination'], $_POST['finalDestination']);
-        $dataUserSelected['origin_province'] = $_POST['initialDestination'];
+        $resultDataBaseSet = $restaurants->getRestaurants($_POST['startingPoint'], $_POST['finalDestination']);
+        $dataUserSelected['origin_province'] = $_POST['startingPoint'];
         $dataUserSelected['final_province'] = $_POST['finalDestination'];
         $dataUserSelected['duration_to_' . $_POST['initialDestination']] = $_POST['duration'];
         $dataUserSelected['distance_to_' . $_POST['initialDestination']] = $_POST['distance'];
