@@ -15,10 +15,10 @@ include_once 'public/headerSections.php';
                     Punto de partida</label>
                 <br>
                 <select class="form-select" id="startingPoint">
-                    <option value="1">Cartago</option>
-                    <option value="2">Heredia</option>
-                    <option value="3">San José</option>
-                    <option value="4">Alajuela</option>
+                    <option value="Cartago">Cartago</option>
+                    <option value="Heredia">Heredia</option>
+                    <option value="San_Jose">San José</option>
+                    <option value="Alajuela">Alajuela</option>
                 </select>
             </div>
             <div class="col-sm">
@@ -26,10 +26,10 @@ include_once 'public/headerSections.php';
                     Punto de llegada</label>
                 <br>
                 <select class="form-select" id="finalDestination">
-                    <option value="1">Heredia</option>
-                    <option value="2">Alajuela</option>
-                    <option value="3">San José</option>
-                    <option value="4">Cartago</option>
+                    <option value="Cartago">Cartago</option>
+                    <option value="Heredia">Heredia</option>
+                    <option value="San_Jose">San José</option>
+                    <option value="Alajuela">Alajuela</option>
                 </select>
             </div>
             <div class="col-sm">
@@ -67,7 +67,7 @@ include_once 'public/headerSections.php';
         </div>
         <div style="margin-top: 100px">
             <input type="button" class="btn btn-danger" href="javascript:;" onclick="calculateTypeOfRoad($('#startingPoint').val(),
-                            $('#finalDestination').val(), $('#typeOfRoad').val());
+                            $('#finalDestination').val(), $('#typeOfRoad').val(), $('#duration').val(),$('#distance').val());
                     return false;" id="calculateTypeOfRoad" name="calculateTypeOfRoad" value="Buscar" />
 
         </div>
