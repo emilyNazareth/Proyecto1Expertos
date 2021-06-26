@@ -135,16 +135,15 @@ function calculateRoutesHotel($startingPoint, $finalDestination,
 }
 
 function calculateRoutesActivity(startingPoint, finalDestination,
-    activityRequirement, activityType, activityPrice, activityModality, activityDuration) {
+     activityType, activityPrice,  activityDuration, distance) {
 
     var parameters = {
         "startingPoint": startingPoint,
         "finalDestination": finalDestination,
-        "hotelStars": activityRequirement,
-        "hotelType": activityType,
-        "hotelPrice": activityPrice,
-        "hotelFacility": activityModality,
-        "activityDuration": activityDuration
+        "activityType": activityType,
+        "price": activityPrice,
+        "duration": activityDuration,
+        "distance": distance
     };
 
 
@@ -163,21 +162,24 @@ function calculateRoutesActivity(startingPoint, finalDestination,
                     se encontraron registros</div>");
             } else {
                 timerId = setInterval(function () {
+
+                    localStorage.setItem("routes", response);
+
+
                     $("#spinner").html("");
-                    $("#result").html("Rutas recomendadas que se cargaran dinamicamente");
+                    
                     $createHTML = "";
-                    var hotels = ["Ruta 1", "RUTA 2", "RUTA 3"];
-                    for (var i = 0; i < hotels.length; i++) {
+                    var activities = ["Ruta 1", "RUTA 2", "RUTA 3"];
+                    for (var i = 0; i < activities.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
                             + "><img class='card-img-top' src='public/img/"
-                            + hotels[i] + ".jpg' width='300' height='300'" +
+                            + activities[i] + ".jpg' width='300' height='300'" +
                             "alt='Card image cap'><div class='card-body'>" +
-                            "<h5 class='card-title'>" + hotels[i] + "</h5>" +
-                            "<p class='card-text'>Tu mejor destino, disfruta de un" +
-                            "delicia gastronomica en compañia de los tuyos</p>" +
-                            "<a href='?controlador=Hotel&accion=getRoute"
-                            + "'" + "class='btn btn-primary'>"
-                            + "Ir</a></div></div>"
+                            "<h5 class='card-title'>" + activities[i] + "</h5>" +
+                            "<p class='card-text'>Tu mejor destino, disfruta estas" +
+                            "maravillosas actividades en estar rutas para ti</p>" +
+                            "<button type='button' onclick='createRoute(`route" + i + "`)'" +
+                            "class='btn btn-primary'>Ir</button>" + "</div></div>";
                     }
                     $("#sites").html($createHTML);
                 }, 3000);

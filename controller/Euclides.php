@@ -287,4 +287,14 @@ class Euclides
         }
         return 3;
     }
+
+    public function changeActivityType($value)
+    {
+        if ($value == 'adventurous') {
+            return 1;
+        } else if ($value == 'cultured') {
+            return 2;
+        }
+        return 3;
+    }
 }
