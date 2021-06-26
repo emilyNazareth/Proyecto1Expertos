@@ -7,7 +7,7 @@ $config->set('modelFolder', 'model/');
 $config->set('viewFolder', 'view/');
 
 $config->set('dbhost', '163.178.107.10'); 
-$config->set('dbname', 'proyecto1_expertos');
+$config->set('dbname', 'turista_inteligente');
 $config->set('dbuser', 'laboratorios');
 $config->set('dbpass', 'KmZpo.2796');
 ?>
