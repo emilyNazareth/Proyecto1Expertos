@@ -327,18 +327,21 @@ function calculateServiceEstablishments(startingPoint) {
         }
     });
 }
-function calculateTypeOfRoad(startingPoint, finalDestination, typeOfRoad) {
+function calculateTypeOfRoad(startingPoint, finalDestination, typeOfRoad, duration, distance) {
 
     var parameters = {
         "startingPoint": startingPoint,
         "finalDestination": finalDestination,
-        "typeOfRoad": typeOfRoad
+        "typeOfRoad": typeOfRoad,
+        "duration" : duration,
+        "distance" : distance,
     };
+    localStorage.setItem('initialDestination', startingPoint);
+    localStorage.setItem('finalDestination', finalDestination);
     $.ajax({
         data: parameters,
-        url: '?controlador=TypeOfRoad&accion=getByTypeOfRoad',
+        url: '?controlador=TypeOfRoad&accion=getRoutesByTypeOfRoad',
         type: 'post',
-
         beforeSend: function () {
             $("#result").html("");
             $("#spinner").html(" <div class='spinner-border text-primary' style='margin-top: 5%' id='spinner' role='status'></div>");
@@ -349,25 +352,29 @@ function calculateTypeOfRoad(startingPoint, finalDestination, typeOfRoad) {
                 $("#result").html("<div class='alert alert-danger'>*No \n\
                     se encontraron registros</div>");
             } else {
+                $("#sites").html("");
                 timerId = setInterval(function () {
                     $("#spinner").html("");
                     $("#result").html("Rutas recomendadas que se cargarán dinámicamente");
                     $createHTML = "";
-                    var serviceEstablishments = ["Ruta 1", "RUTA 2", "RUTA 3"];
-                    for (var i = 0; i < serviceEstablishments.length; i++) {
+
+
+                    localStorage.setItem("routes", response);
+
+                    console.log(response);
+                    var hotels = ["Ruta 1", "Ruta 2", "Ruta 3"];
+                    for (var i = 0; i < hotels.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
                             + "><img class='card-img-top' src='public/img/"
-                            + serviceEstablishments[i] + ".jpg' width='300' height='300'" +
+                            + hotels[i] + ".jpg' width='300' height='300'" +
                             "alt='Card image cap'><div class='card-body'>" +
-                            "<h5 class='card-title'>" + serviceEstablishments[i] + "</h5>" +
-                            "<p class='card-text'>Una de las mejores opciones  " +
-                            "para disfrutar en este día</p>" +
-                            "<a href='?controlador=TypeOfRoad&accion=getRoute"
-                            + "'" + "class='btn btn-primary'>"
-                            + "Ir</a></div></div>"
+                            "<h5 class='card-title'>" + hotels[i] + "</h5>" +
+                            "<p class='card-text'>Ruta ideal para tú camino preferido</p>" +
+                            "<button type='button' onclick='createRouteHotel(`route" + i + "`)'" +
+                            "class='btn btn-primary'>Ir</button>" + "</div></div>";
                     }
                     $("#sites").html($createHTML);
-                }, 3000);
+                }, 1000);
 
             }
         }
