@@ -14,10 +14,10 @@ include_once 'public/headerSections.php';
                     Punto de partida</label>
                 <br>
                 <select class="form-select" id="startingPoint">
-                    <option value="1">Cartago</option>
-                    <option value="2">Turrialba</option>
-                    <option value="3">San José</option>
-                    <option value="4">Cervantes</option>
+                    <option value="Cartago">Cartago</option>
+                    <option value="Heredia">Heredia</option>
+                    <option value="San_Jose">San José</option>
+                    <option value="Alajuela">Alajuela</option>
                 </select>
             </div>
             <div class="col-sm">
@@ -25,10 +25,10 @@ include_once 'public/headerSections.php';
                     Punto de llegada</label>
                 <br>
                 <select class="form-select" id="finalDestination">
-                    <option value="1">Turrialba</option>
-                    <option value="2">Cervantes</option>
-                    <option value="3">San José</option>
-                    <option value="4">Cartago</option>
+                    <option value="Cartago">Cartago</option>
+                    <option value="Heredia">Heredia</option>
+                    <option value="San_Jose">San José</option>
+                    <option value="Alajuela">Alajuela</option>
                 </select>
             </div>
             <div class="col-sm">
@@ -38,8 +38,7 @@ include_once 'public/headerSections.php';
                 <select class="form-select" id="typeTourist">
                     <option value="1">Aventurero</option>
                     <option value="2">Reservado</option>
-                    <option value="3">Extrovertido</option>
-                    <option value="4">Culturales</option>
+                    <option value="3">Culturales</option>
                 </select>
             </div>
         </div>
@@ -83,10 +82,9 @@ include_once 'public/headerSections.php';
 
     <div style="margin-top: 100px">
         <input type="button" class="btn btn-danger" href="javascript:;" onclick="calculateRoutesTourist($('#startingPoint').val(),
-                        $('#typeTourist').val(), $('#ageRange').val(),
-                        $('#budget').val());
+                        $('#finalDestination').val(),$('#typeTourist').val(), $('#ageRange').val(),
+                        $('#duration').val(), $('#distance').val());
                 return false;" id="calculateRoutesTourist" name="calculateRoutesTourist" value="Buscar" />
-
     </div>
     <div id="spinner"></div>
     <div style="margin-top : 50px">

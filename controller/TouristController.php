@@ -18,14 +18,72 @@ class TouristController
     }
 
     /**
-     * Get Recommended Site
+     * Get route by Tourist preferenses
      */
     public function getRoutesByTourist()
-    {                    
-        /**
-         * send the stringHTML to javascript ajax to show the result in the view
-         */
-        echo "Buscando Turista";
+    {
+        $allRoutes = [];
+        require 'model/TouristModel.php';
+        require 'controller/Euclides.php';
+        $euclidesAlgorithm = new Euclides();
+        $tourist = TouristModel::singleton();
+        $resultDataBaseSet = $tourist->getActivities($_POST['startingPoint'], $_POST['finalDestination']);
+        $dataUserSelected['origin_province'] = $_POST['startingPoint'];
+        $dataUserSelected['final_province'] = $_POST['finalDestination'];
+        $dataUserSelected['origin_province'] = $_POST['startingPoint'];
+        $dataUserSelected['tourist'] = $_POST['typeTourist'];
+        $dataUserSelected['ageRange'] = $_POST['ageRange'];
+        $dataUserSelected['duration_to_' . $_POST['startingPoint']] = $_POST['duration'];
+        $dataUserSelected['distance_to_' . $_POST['startingPoint']] = $_POST['distance'];
+        $durationString = strval("duration_to_" . $_POST['startingPoint']);
+        $distanceString = strval("distance_to_" . $_POST['startingPoint']);
+        foreach ($resultDataBaseSet as &$resultDb) {
+            $resultDb->tourist = $euclidesAlgorithm->changeTouristValue($resultDb->tourist);
+            $resultDb->$durationString = $euclidesAlgorithm->changeDurationValue($resultDb->$durationString);
+            $resultDb->$distanceString = $euclidesAlgorithm->changeKmValue($resultDb->$distanceString);
+            $resultDb->ageRange = $euclidesAlgorithm->changeAgeRangeValue($resultDb->ageRange);
+        }
+
+        $routes = $euclidesAlgorithm->calculateDistance(
+            $dataUserSelected,
+            $resultDataBaseSet,
+            [$durationString, $distanceString, 'tourist', 'ageRange']
+        );
+        $arrayRoutes = json_decode(json_encode($routes), true);
+        asort($arrayRoutes);
+        $route1 = array_slice($arrayRoutes, 1, 3, true);
+        $route2 = array_slice($arrayRoutes, 4, 3, true);
+        $route3 = array_slice($arrayRoutes, 7, 3, true);
+        $routesInformation1 = $this->generateRoutes(
+            $resultDataBaseSet,
+            $route1
+        );
+        $routesInformation2 = $this->generateRoutes(
+            $resultDataBaseSet,
+            $route2
+        );
+        $routesInformation3 = $this->generateRoutes(
+            $resultDataBaseSet,
+            $route3
+        );
+        $allRoutes['route0'] = $routesInformation1;
+        $allRoutes['route1'] =  $routesInformation2;
+        $allRoutes['route2'] = $routesInformation3;
+        echo  json_encode($allRoutes);
+    }
+    
+        public function generateRoutes($dataSetDataBase, $routesId)
+    {
+        $idsRoute = array_keys($routesId);
+        $routesInformation = [];
+        foreach ($dataSetDataBase as $result) {
+            foreach ($idsRoute as $resultId) {
+                if ($resultId == $result->id) {
+                    array_push($routesInformation, $result);
+                }
+            }
+        }
+        return   $routesInformation;
     }
         public function showSiteAddress()
     {
@@ -43,8 +101,9 @@ class TouristController
 
         $this->view->show("addressSiteView.php", $maps);
     }
-    public function getRoute ()
+    public function showTouristRouteView ()
     {                 
         $this->view->show("mapDetailRoute.php");
     }
+
 }

@@ -147,7 +147,49 @@ class Euclides
         }
         return 3;
     }
+    public function changeRoadTypeValue($value)
+    {
+        if ($value == 'Pavement') {
+            return 1;
+        } else if ($value == 'Stone') {
+            return 2;
+        }
+        return 3;
+    }
 
+        /**
+     * Transforms the learning style type from string to numeric so that it can 
+     * be used in calculation.
+     * @param string $value name of learning style.
+     * @return int  return the numerical value according to the learning name. 
+     */
+    public function changeTouristValue($value)
+    {
+        if ($value == 'adventurous') {
+            return 1;
+        } else if ($value == 'reserved') {
+            return 2;
+        }
+        return 3;
+    }
+    
+            /**
+     * Transforms the learning style type from string to numeric so that it can 
+     * be used in calculation.
+     * @param string $value name of learning style.
+     * @return int  return the numerical value according to the learning name. 
+     */
+    public function changeAgeRangeValue($value)
+    {
+        if ($value <= 17) {
+            return 1;
+        } else if ($value > 17 && $value <= 29) {
+            return 2;
+        }else if ($value > 29 && $value <= 49) {
+            return 3;
+        }
+        return 4;
+    }
     /**
      * Transforms the campus from string to numeric so that it can 
      * be used in calculation.
