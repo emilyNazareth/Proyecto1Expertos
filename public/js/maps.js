@@ -1,5 +1,3 @@
-
-
 function initMap() {
 
   var mapOptions = {
@@ -19,12 +17,17 @@ function initMap() {
     computeTotalDistance(directionsRenderer.getDirections());
   });
   displayRoute(
-    { lat: 9.902628279822025, lng: -83.67073936030803 },
-    { lat: 9.867059081908426, lng: -83.92810832094152 },
+    {
+      lat: Number.parseFloat(localStorage.getItem("intialPointLat")),
+      lng: Number.parseFloat(localStorage.getItem("intialPointLong"))
+    },
+    { 
+      lat: Number.parseFloat(localStorage.getItem("finalPointLat")),
+      lng: Number.parseFloat(localStorage.getItem("finalPointLong"))
+    },
     directionsService,
     directionsRenderer
   );
-
   var marker = new google.maps.Marker({
     map: map,
     draggable: false,
@@ -42,8 +45,27 @@ function displayRoute(origin, destination, service, display) {
       origin: origin,
       destination: destination,
       waypoints: [
-        { location: { lat: 9.896816730647581, lng: -83.78580388729162 } },
-        { location: { lat: 9.819314765076408, lng: -83.85754995712739 } },   //9.819314765076408, -83.85754995712739     
+        { 
+          location: 
+          { 
+            lat: Number.parseFloat(localStorage.getItem("firstPlaceLat")),
+            lng: Number.parseFloat(localStorage.getItem("firstPlaceLong"))
+          } 
+        },
+        { 
+          location: 
+          { 
+            lat: Number.parseFloat(localStorage.getItem("secondPlaceLat")),
+            lng: Number.parseFloat(localStorage.getItem("secondPlaceLong"))
+          }
+        },
+        { 
+          location: 
+          { 
+            lat: Number.parseFloat(localStorage.getItem("thirdPlaceLat")),
+            lng: Number.parseFloat(localStorage.getItem("thirdPlaceLong"))
+          }
+        },
       ],
       travelMode: google.maps.TravelMode.DRIVING,
       avoidTolls: true,
@@ -51,7 +73,7 @@ function displayRoute(origin, destination, service, display) {
     (result, status) => {
       if (status === "OK" && result) {
         display.setDirections(result);
-        
+
       } else {
         alert("Could not display directions due to: " + status);
       }
@@ -75,13 +97,13 @@ function computeTotalDistance(result) {
   document.querySelector('body').append(document.createElement('footer'));
   const f = document.querySelector('footer');
   f.classList.add('text-muted');
-  f.innerHTML = '<center>'+
-  ' <div id="nameEmail" class="container">'+
-       '<p style="font-family: \'Lobster Two\'; font-size: 20px;">Desarrollado por: Info Team</p>'+                                                   
-       '<p>Sitio web con fines académicos</p> '+
-       '<p> 2021</p'+
-   '</div>'+
-'</center>';
+  f.innerHTML = '<center>' +
+    ' <div id="nameEmail" class="container">' +
+    '<p style="font-family: \'Lobster Two\'; font-size: 20px;">Desarrollado por: Info Team</p>' +
+    '<p>Sitio web con fines académicos</p> ' +
+    '<p> 2021</p' +
+    '</div>' +
+    '</center>';
   /*$('right-panel').append(' <footer  class="text-muted" style="margin-top: 15%;">'+
   '<center>'+
      ' <div id="nameEmail" class="container">'+
