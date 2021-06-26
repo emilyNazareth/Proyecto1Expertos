@@ -1,6 +1,6 @@
 <?php
 
-class RestaurantModel {
+class ActivityModel {
 
     protected $db;
     private static $instance = null;

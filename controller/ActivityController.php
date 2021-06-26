@@ -27,8 +27,8 @@ class ActivityController
         require 'controller/Euclides.php';
 
         $euclidesAlgorithm = new Euclides();
-        $restaurants = RestaurantModel::singleton();
-        $resultDataBaseSet = $restaurants->getActivities($_POST['startingPoint'], $_POST['finalDestination']);
+        $activities = ActivityModel::singleton();
+        $resultDataBaseSet = $activities->getActivities($_POST['startingPoint'], $_POST['finalDestination']);
         $dataUserSelected['origin_province'] = $_POST['startingPoint'];
         $dataUserSelected['final_province'] = $_POST['finalDestination'];
         $dataUserSelected['duration_to_' . $_POST['startingPoint']] = $_POST['duration'];

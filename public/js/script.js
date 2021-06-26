@@ -70,28 +70,18 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
 
 
                     $("#sites").html($createHTML);
-<<<<<<< HEAD
-                }, 3000);
-        
-=======
+
                 }, 1000);
-
-
->>>>>>> master
             }
         }
     });
 }
 
-<<<<<<< HEAD
-function calculateRoutesHotel(startingPoint, finalDestination,
-        hotelStars, hotelType, hotelPrice, hotelFacility) {
+
             
-=======
+
 function calculateRoutesHotel($startingPoint, $finalDestination,
     $duration, $hotelType, $hotelPrice, $distance) {
-
->>>>>>> master
     var parameters = {
         "startingPoint": $startingPoint,
         "finalDestination": $finalDestination,
@@ -146,58 +136,58 @@ function calculateRoutesHotel($startingPoint, $finalDestination,
 }
 
 function calculateRoutesActivity(startingPoint, finalDestination,
-     activityType, activityPrice,  activityDuration, distance) {
+    activityType, activityPrice,  activityDuration, distance) {
 
-    var parameters = {
-        "startingPoint": startingPoint,
-        "finalDestination": finalDestination,
-        "activityType": activityType,
-        "price": activityPrice,
-        "duration": activityDuration,
-        "distance": distance
-    };
-
-
-    $.ajax({
-        data: parameters,
-        url: '?controlador=Activity&accion=getRoutesByActivity',
-        type: 'post',
-        beforeSend: function () {
-            $("#result").html("");
-            $("#spinner").html(" <div class='spinner-border text-primary' style='margin-top: 5%' id='spinner' role='status'></div>");
-        },
-        success: function (response) {
-            /*Set the span label result*/
-            if (response === 0) {
-                $("#result").html("<div class='alert alert-danger'>*No \n\
-                    se encontraron registros</div>");
-            } else {
-                timerId = setInterval(function () {
-
-                    localStorage.setItem("routes", response);
+   var parameters = {
+       "startingPoint": startingPoint,
+       "finalDestination": finalDestination,
+       "activityType": activityType,
+       "price": activityPrice,
+       "duration": activityDuration,
+       "distance": distance
+   };
 
 
-                    $("#spinner").html("");
-                    
-                    $createHTML = "";
-                    var activities = ["Ruta 1", "RUTA 2", "RUTA 3"];
-                    for (var i = 0; i < activities.length; i++) {
-                        $createHTML += "<div class='card' style='width: 18rem;'"
-                            + "><img class='card-img-top' src='public/img/"
-                            + activities[i] + ".jpg' width='300' height='300'" +
-                            "alt='Card image cap'><div class='card-body'>" +
-                            "<h5 class='card-title'>" + activities[i] + "</h5>" +
-                            "<p class='card-text'>Tu mejor destino, disfruta estas" +
-                            "maravillosas actividades en estar rutas para ti</p>" +
-                            "<button type='button' onclick='createRoute(`route" + i + "`)'" +
-                            "class='btn btn-primary'>Ir</button>" + "</div></div>";
-                    }
-                    $("#sites").html($createHTML);
-                }, 3000);
+   $.ajax({
+       data: parameters,
+       url: '?controlador=Activity&accion=getRoutesByActivity',
+       type: 'post',
+       beforeSend: function () {
+           $("#result").html("");
+           $("#spinner").html(" <div class='spinner-border text-primary' style='margin-top: 5%' id='spinner' role='status'></div>");
+       },
+       success: function (response) {
+           /*Set the span label result*/
+           if (response === 0) {
+               $("#result").html("<div class='alert alert-danger'>*No \n\
+                   se encontraron registros</div>");
+           } else {
+               timerId = setInterval(function () {
 
-            }
-        }
-    });
+                   localStorage.setItem("routes", response);
+
+
+                   $("#spinner").html("");
+                   
+                   $createHTML = "";
+                   var activities = ["Ruta 1", "RUTA 2", "RUTA 3"];
+                   for (var i = 0; i < activities.length; i++) {
+                       $createHTML += "<div class='card' style='width: 18rem;'"
+                           + "><img class='card-img-top' src='public/img/"
+                           + activities[i] + ".jpg' width='300' height='300'" +
+                           "alt='Card image cap'><div class='card-body'>" +
+                           "<h5 class='card-title'>" + activities[i] + "</h5>" +
+                           "<p class='card-text'>Tu mejor destino, disfruta estas" +
+                           "maravillosas actividades en estar rutas para ti</p>" +
+                           "<button type='button' onclick='createRoute(`route" + i + "`)'" +
+                           "class='btn btn-primary'>Ir</button>" + "</div></div>";
+                   }
+                   $("#sites").html($createHTML);
+               }, 3000);
+
+           }
+       }
+   });
 }
 
 function calculateRecommendedSite(startingPoint, finalDestination) {
