@@ -59,8 +59,7 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
                                 + restaurants[i] + ".jpg' width='300' height='300'" +
                                 "alt='Card image cap'><div class='card-body'>" +
                                 "<h5 class='card-title'>" + restaurants[i] + "</h5>" +
-                                "<p class='card-text'>Tu mejor destino, disfruta de una" +
-                                "delicia gastronomica en compañia de los tuyos</p>" +
+                                "<p class='card-text'>"+ getPlacesRoute('route' + i)  +"</p>" +
                                 "<button type='button' onclick='createRoute(`route" + i + "`)'" +
                                 "class='btn btn-primary'>Ir</button>" + "</div></div>";
                         //    + "<button type='button' onclick='createRoute()' class=class='btn btn-primary'>Ir</button>
@@ -124,7 +123,7 @@ function calculateRoutesHotel($startingPoint, $finalDestination,
                                 + hotels[i] + ".jpg' width='300' height='300'" +
                                 "alt='Card image cap'><div class='card-body'>" +
                                 "<h5 class='card-title'>" + hotels[i] + "</h5>" +
-                                "<p class='card-text'>Los mejores hoteles en tu ruta ideal</p>" +
+                                "<p class='card-text'>"+ getPlacesRoute('route' + i)  +"</p>" +
                                 "<button type='button' onclick='createRouteHotel(`route" + i + "`)'" +
                                 "class='btn btn-primary'>Ir</button>" + "</div></div>";
                     }
