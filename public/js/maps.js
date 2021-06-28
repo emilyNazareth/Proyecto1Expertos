@@ -94,16 +94,16 @@ function computeTotalDistance(result) {
   }
   total = total / 1000;
   document.getElementById("total").innerHTML = total + " km";
-  document.querySelector('body').append(document.createElement('footer'));
-  const f = document.querySelector('footer');
-  f.classList.add('text-muted');
-  f.innerHTML = '<center>' +
-    ' <div id="nameEmail" class="container">' +
-    '<p style="font-family: \'Lobster Two\'; font-size: 20px;">Desarrollado por: Info Team</p>' +
-    '<p>Sitio web con fines académicos</p> ' +
-    '<p> 2021</p' +
-    '</div>' +
-    '</center>';
+  // document.querySelector('body').append(document.createElement('footer'));
+  // const f = document.querySelector('footer');
+  // f.classList.add('text-muted');
+  // f.innerHTML = '<center>' +
+  //   ' <div id="nameEmail" class="container">' +
+  //   '<p style="font-family: \'Lobster Two\'; font-size: 20px;">Desarrollado por: Info Team</p>' +
+  //   '<p>Sitio web con fines académicos</p> ' +
+  //   '<p> 2021</p' +
+  //   '</div>' +
+  //   '</center>';
   /*$('right-panel').append(' <footer  class="text-muted" style="margin-top: 15%;">'+
   '<center>'+
      ' <div id="nameEmail" class="container">'+
