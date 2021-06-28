@@ -176,8 +176,7 @@ function calculateRoutesActivity(startingPoint, finalDestination,
                                 + activities[i] + ".jpg' width='300' height='300'" +
                                 "alt='Card image cap'><div class='card-body'>" +
                                 "<h5 class='card-title'>" + activities[i] + "</h5>" +
-                                "<p class='card-text'>Tu mejor destino, disfruta estas" +
-                                "maravillosas actividades en estar rutas para ti</p>" +
+                                "<p class='card-text'>" + getPlacesRoute('route' + i) + "</p>" +
                                 "<button type='button' onclick='createRoute(`route" + i + "`)'" +
                                 "class='btn btn-primary'>Ir</button>" + "</div></div>";
                     }

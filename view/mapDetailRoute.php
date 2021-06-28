@@ -3,20 +3,6 @@
 include_once 'public/headerSections.php';
 ?>
 
-<style>
- footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #FFF;
- }
- p{
-   margin: .4rem;
- }
-
-
-
-</style>
 
 <h2 id="titlesMap">
   Seguí la ruta a tu destino</h2>
