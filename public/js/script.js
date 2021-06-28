@@ -115,7 +115,6 @@ function calculateRoutesHotel($startingPoint, $finalDestination,
 
                     localStorage.setItem("routes", response);
 
-                    console.log(response);
                     var hotels = ["Ruta 1", "Ruta 2", "Ruta 3"];
                     for (var i = 0; i < hotels.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
@@ -223,7 +222,6 @@ function calculateRecommendedSite(startingPoint, finalDestination, duration, dis
 
                     localStorage.setItem("routes", response);
 
-                    console.log(response);
                     var sites = ["Ruta 1", "Ruta 2", "Ruta 3"];
                     for (var i = 0; i < sites.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
@@ -281,7 +279,6 @@ function calculateRoutesTourist(startingPoint, finalDestination, typeTourist, ag
 
                     localStorage.setItem("routes", response);
 
-                    console.log(response);
                     var tourist = ["Ruta 1", "Ruta 2", "Ruta 3"];
                     for (var i = 0; i < tourist.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
@@ -382,7 +379,6 @@ function calculateTypeOfRoad(startingPoint, finalDestination, typeOfRoad, durati
                     $("#result").html("Rutas recomendadas:");
                     $createHTML = "";
 
-                    console.log(response);
                     var hotels = ["Ruta 1", "Ruta 2", "Ruta 3"];
                     for (var i = 0; i < hotels.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
