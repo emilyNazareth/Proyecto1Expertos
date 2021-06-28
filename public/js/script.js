@@ -196,6 +196,9 @@ function calculateRecommendedSite(startingPoint, finalDestination, duration, dis
         "duration": duration,
         "distance": distance
     };
+
+    localStorage.setItem('initialDestination', startingPoint);
+    localStorage.setItem('finalDestination', finalDestination);
     $.ajax({
         data: parameters,
         url: '?controlador=RecommendedSite&accion=getRecommendedSite',
@@ -228,9 +231,10 @@ function calculateRecommendedSite(startingPoint, finalDestination, duration, dis
                                 + sites[i] + ".jpg' width='300' height='300'" +
                                 "alt='Card image cap'><div class='card-body'>" +
                                 "<h5 class='card-title'>" + sites[i] + "</h5>" +
-                                "<p class='card-text'>Le recomendamos la ruta ideal</p>" +
+                                "<p class='card-text'>" + getPlacesRoute('route' + i) + "</p>" +
                                 "<button type='button' onclick='createRouteTourist(`route" + i + "`)'" +
                                 "class='btn btn-primary'>Ir</button>" + "</div></div>";
+
                     }
                     $("#sites").html($createHTML);
                 }, 1000);
@@ -285,9 +289,10 @@ function calculateRoutesTourist(startingPoint, finalDestination, typeTourist, ag
                                 + tourist[i] + ".jpg' width='300' height='300'" +
                                 "alt='Card image cap'><div class='card-body'>" +
                                 "<h5 class='card-title'>" + tourist[i] + "</h5>" +
-                                "<p class='card-text'>Las mejores actividades en tu ruta ideal</p>" +
+                                "<p class='card-text'>" + getPlacesRoute('route' + i) + "</p>" +
                                 "<button type='button' onclick='createRouteTourist(`route" + i + "`)'" +
                                 "class='btn btn-primary'>Ir</button>" + "</div></div>";
+
                     }
                     $("#sites").html($createHTML);
                 }, 1000);
