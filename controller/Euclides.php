@@ -50,40 +50,42 @@ class Euclides
              *subtraction.
              */
             $squareOfDifferencesSum = sqrt($differencesSumValue);
-            if (!isset($routes[$values->id])){
-                $routes[$values->id] = [];                
+            if (!isset($routes[$values->id])) {
+                $routes[$values->id] = [];
             }
-            array_push($routes[$values->id],  $squareOfDifferencesSum);            
+            array_push($routes[$values->id],  $squareOfDifferencesSum);
         }
         return $routes;
     }
 
+    
     /**
-     * @param string $labelName name of the label that will have the input 
-     *                       where the result of the calculation is shown.  
-     * @param string $calculatedResult name that will have the span label.
-     * @return string $resultHTML the div of html that containt the information
-     *                            that will showed in the view. 
+     * search the route by id in order get all information about it and 
+     *   save in array. 
+     * @param array $dataDataBase data obtained from the database(dataSet).
+     * @param array $routesId of each place
+     * @return object $routesInformation array with routes created.        
      */
-    public function createStringHTML($labelName, $calculatedResult)
+    
+    public function generateRoutes($dataSetDataBase, $routesId)
     {
-        $resultHTML = "";
-        $resultHTML .= '<div class="col-sm">';
-        $resultHTML .= '<label style="margin-right : 20px" '
-            . 'class="labelLearningStyle" for="average">' . $labelName .
-            '</label>';
-        $resultHTML .= '<input type="text" id="campus" name="campus" '
-            . 'readonly="true" value="' . $calculatedResult . '">';
-        $resultHTML .= '</div>';
-
-        return $resultHTML;
+        $idsRoute = array_keys($routesId);
+        $routesInformation = [];
+        foreach ($dataSetDataBase as $result) {
+            foreach ($idsRoute as $resultId) {
+                if ($resultId == $result->id) {
+                    array_push($routesInformation, $result);
+                }
+            }
+        }
+        return   $routesInformation;
     }
 
     /**
-     * Transforms the learning style type from string to numeric so that it can 
+     * Transforms the price type from string to numeric so that it can 
      * be used in calculation.
-     * @param string $value name of learning style.
-     * @return int  return the numerical value according to the learning name. 
+     * @param string $value name of price.
+     * @return int  return the numerical value according to the price name. 
      */
     public function changePriceValue($value)
     {
@@ -96,10 +98,10 @@ class Euclides
     }
 
     /**
-     * Transforms the sex type from string to numeric so that it can 
+     * Transforms the distance range  so that it can 
      * be used in calculation.
-     * @param int $value type of sex. 
-     * @return int  return the numerical value according to the sex name. 
+     * @param string $value type of distance. 
+     * @return int  return the numerical value according to the distance range. 
      */
     public function changeKmValue($value)
     {
@@ -111,10 +113,10 @@ class Euclides
         return 3;
     }
     /**
-     * Transforms the sex type from string to numeric so that it can 
+     * Transforms the duration type from string to numeric so that it can 
      * be used in calculation.
-     * @param string $value type of sex. 
-     * @return int  return the numerical value according to the sex name. 
+     * @param string $value type of duration. 
+     * @return int  return the numerical value according to the duration range. 
      */
     public function changeDurationValue($value)
     {
@@ -126,6 +128,12 @@ class Euclides
         return 3;
     }
 
+    /**
+     * Transforms the province  type from string to numeric so that it can 
+     * be used in calculation.
+     * @param string $value name of province.
+     * @return int  return the numerical value according to the province name. 
+     */
     public function changeProvinceValue($value)
     {
         if ($value == 'Cartago') {
@@ -137,7 +145,12 @@ class Euclides
         }
         return 4;
     }
-
+    /**
+     * Transforms the hotel  type from string to numeric so that it can 
+     * be used in calculation.
+     * @param string $value name of hotel.
+     * @return int  return the numerical value according to the hotel name. 
+     */
     public function changeHotelValue($value)
     {
         if ($value == 'Mountain') {
@@ -147,6 +160,14 @@ class Euclides
         }
         return 3;
     }
+
+    /**
+     * Transforms the road  type from string to numeric so that it can 
+     * be used in calculation.
+     * @param string $value name of road.
+     * @return int  return the numerical value according to the road name. 
+     */
+
     public function changeRoadTypeValue($value)
     {
         if ($value == 'Pavement') {
@@ -157,11 +178,11 @@ class Euclides
         return 3;
     }
 
-        /**
-     * Transforms the learning style type from string to numeric so that it can 
+    /**
+     * Transforms the tourist  type from string to numeric so that it can 
      * be used in calculation.
-     * @param string $value name of learning style.
-     * @return int  return the numerical value according to the learning name. 
+     * @param string $value name of tourist.
+     * @return int  return the numerical value according to the tourist name. 
      */
     public function changeTouristValue($value)
     {
@@ -172,12 +193,12 @@ class Euclides
         }
         return 3;
     }
-    
-            /**
-     * Transforms the learning style type from string to numeric so that it can 
+
+    /**
+     * Transforms the range age type from string to numeric so that it can 
      * be used in calculation.
-     * @param string $value name of learning style.
-     * @return int  return the numerical value according to the learning name. 
+     * @param string $value name of range age.
+     * @return int  return the numerical value according to the age range. 
      */
     public function changeAgeRangeValue($value)
     {
@@ -185,149 +206,10 @@ class Euclides
             return 1;
         } else if ($value > 17 && $value <= 29) {
             return 2;
-        }else if ($value > 29 && $value <= 49) {
+        } else if ($value > 29 && $value <= 49) {
             return 3;
         }
         return 4;
-    }
-    /**
-     * Transforms the campus from string to numeric so that it can 
-     * be used in calculation.
-     * @param string $value name of campus. 
-     * @return int  return the numerical value according to the campus name. 
-     */
-    public function changeCampusValue($value)
-    {
-        if ($value == 'Paraiso') {
-            return 1;
-        }
-        return 2;
-    }
-
-    /**
-     * Transforms the type of sex from string to numeric so that it can 
-     * be used in calculation.
-     * @param string $value type of sex. 
-     * @return int  return the numerical value according to the sex name. 
-     */
-
-    public function changeTypeB($value)
-    {
-        if ($value == 'F') {
-            return 1;
-        } else if ($value == 'M') {
-            return 2;
-        }
-        return 3;
-    }
-
-
-    /**
-     * Transforms the type of experience teaching from string to numeric so 
-     * that it can be used in calculation.
-     * @param string $value name of experience teaching. 
-     * @return int  return the numerical value according to the experience 
-     *                  teaching name. 
-     */
-    public function changeTypeC($value)
-    {
-        if ($value == 'B') {
-            return 1;
-        } else if ($value == 'I') {
-            return 2;
-        }
-        return 3;
-    }
-
-    /**
-     * Transforms the type of area experience from string to numeric so that it 
-     * can be used in calculation.
-     * @param string $value name of area experience.
-     * @return int  return the numerical value according to the area experience 
-     *                  name. 
-     */
-
-    public function changeTypeE($value)
-    {
-        if ($value == 'DM') {
-            return 1;
-        } else if ($value == 'ND') {
-            return 2;
-        }
-        return 3;
-    }
-
-    /**
-     * Transforms the type of skills using computer from string to numeric so 
-     * that it can be used in calculation.
-     * @param string $value name of skills using computer.
-     * @return int  return the numerical value according to the skills using 
-     *                  computer name.
-     */
-
-    public function changeTypeF($value)
-    {
-        if ($value == 'L') {
-            return 1;
-        } else if ($value == 'A') {
-            return 2;
-        }
-        return 3;
-    }
-
-    /**
-     * Transforms the type of teacher’s experience using Web-based technology 
-     * from string to numeric so that it can be used in calculation.
-     * @param string $value name of teacher’s experience using Web-based 
-     *                  technology.
-     * @return int  return the numerical value according to the teacher’s 
-     *                  experience using Web-based technology name.
-     */
-
-    public function changeTypeG($value)
-    {
-        if ($value == 'N') {
-            return 1;
-        } else if ($value == 'S') {
-            return 2;
-        }
-        return 3;
-    }
-
-    /**
-     * Transforms the type of teacher’s experience using a Web site from string 
-     * to numeric so that it can be used in calculation.
-     * @param string $value name of teacher’s experience using a Web site.
-     * @return int  return the numerical value according to the teacher’s 
-     *                  experience using a Web site name. 
-     */
-
-    public function changeTypeH($value)
-    {
-        if ($value == 'N') {
-            return 1;
-        } else if ($value == 'S') {
-            return 2;
-        }
-        return 3;
-    }
-
-    /**
-     * Transforms the type of cost and capacity level from string to numeric so 
-     * that it can be used in calculation.
-     * @param string $value name of cost and capacity level 
-     * @return int  return the numerical value according to the cost and 
-     *                  capacity level name. 
-     */
-
-    public function changeCapacityAndCostValue($value)
-    {
-        if ($value == 'Low') {
-            return 1;
-        } else if ($value == 'Medium') {
-            return 2;
-        }
-        return 3;
     }
 
     public function changeActivityType($value)
