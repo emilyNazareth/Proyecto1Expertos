@@ -301,16 +301,20 @@ function calculateRoutesTourist(startingPoint, finalDestination, typeTourist, ag
         }
     });
 }
-function calculateServiceEstablishments(startingPoint) {
+function calculateServiceEstablishments(startingPoint,finalDestination, duration, distance) {
 
     var parameters = {
-        "startingPoint": startingPoint
+        "startingPoint": startingPoint,
+        "finalDestination": finalDestination,
+        "duration":duration,
+        "distance": distance
     };
+    localStorage.setItem('initialDestination', startingPoint);
+    localStorage.setItem('finalDestination', finalDestination);
     $.ajax({
         data: parameters,
-        url: '?controlador=ServiceEstablishments&accion=getServiceEstablishments',
+        url: '?controlador=ServiceEstablishments&accion=getRoutesByServiceEstablishments',
         type: 'post',
-
         beforeSend: function () {
             $("#result").html("");
             $("#spinner").html(" <div class='spinner-border text-primary' style='margin-top: 5%' id='spinner' role='status'></div>");
@@ -321,25 +325,27 @@ function calculateServiceEstablishments(startingPoint) {
                 $("#result").html("<div class='alert alert-danger'>*No \n\
                     se encontraron registros</div>");
             } else {
+                $("#sites").html("");
                 timerId = setInterval(function () {
                     $("#spinner").html("");
                     $("#result").html("Rutas recomendadas:");
                     $createHTML = "";
-                    var serviceEstablishments = ["Ruta 1", "RUTA 2", "RUTA 3"];
+
+                    localStorage.setItem("routes", response);
+                    
+                    var serviceEstablishments = ["Ruta 1", "Ruta 2", "Ruta 3"];
                     for (var i = 0; i < serviceEstablishments.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
                                 + "><img class='card-img-top' src='public/img/"
                                 + serviceEstablishments[i] + ".jpg' width='300' height='300'" +
                                 "alt='Card image cap'><div class='card-body'>" +
                                 "<h5 class='card-title'>" + serviceEstablishments[i] + "</h5>" +
-                                "<p class='card-text'>Una de las opciones cercanas " +
-                                "sobre establecimientos de servicios</p>" +
-                                "<a href='?controlador=ServiceEstablishments&accion=getRoute" +
-                                "'" + "class='btn btn-primary'>"
-                                + "Ir</a></div></div>"
+                                "<p class='card-text'>" + getPlacesRoute('route' + i) + "</p>" +
+                                "<button type='button' onclick='createRoute(`route" + i + "`)'" +
+                                "class='btn btn-primary'>Ir</button>" + "</div></div>";
                     }
                     $("#sites").html($createHTML);
-                }, 3000);
+                }, 1000);
 
             }
         }

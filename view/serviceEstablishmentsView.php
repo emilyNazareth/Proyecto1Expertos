@@ -15,10 +15,21 @@ include_once 'public/headerSections.php';
                     Punto de partida</label>
                 <br>
                 <select class="form-select" id="startingPoint">
-                    <option value="1">Cartago</option>
-                    <option value="2">Turrialba</option>
-                    <option value="3">San José</option>
-                    <option value="4">Cervantes</option>
+                    <option value="Cartago">Cartago</option>
+                    <option value="Heredia">Heredia</option>
+                    <option value="San_Jose">San José</option>
+                    <option value="Alajuela">Alajuela</option>
+                </select>
+            </div>
+            <div class="col-sm">
+                <label class="restaurant" for="finalDestination">
+                    Punto de llegada</label>
+                <br>
+                <select class="form-select" id="finalDestination">
+                    <option value="Cartago">Cartago</option>
+                    <option value="Heredia">Heredia</option>
+                    <option value="San_Jose">San José</option>
+                    <option value="Alajuela">Alajuela</option>
                 </select>
             </div> 
             <div class="col-sm">
@@ -43,7 +54,8 @@ include_once 'public/headerSections.php';
             </div>           
         </div>
         <div style="margin-top: 100px">
-            <input type="button" class="btn btn-danger" href="javascript:;" onclick="calculateServiceEstablishments($('#startingPoint').val());
+            <input type="button" class="btn btn-danger" href="javascript:;" onclick="calculateServiceEstablishments($('#startingPoint').val(),
+            $('#finalDestination').val(), $('#duration').val(),$('#distance').val());
                     return false;" id="calculateServiceEstablishments" name="calculateServiceEstablishments" value="Buscar" />
 
         </div>
