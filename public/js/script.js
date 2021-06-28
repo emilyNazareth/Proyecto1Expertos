@@ -14,7 +14,7 @@ function isFieldEmpty(fieldValue) {
 
 
 function calculateRoutesRestaurant($initialDestination, $finalDestination,
-    $duration, $distance, $price, $closingTime) {
+        $duration, $distance, $price, $closingTime) {
 
     var parameters = {
         "initialDestination": $initialDestination,
@@ -55,13 +55,13 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
                     var restaurants = ["Ruta 1", "RUTA 2", "RUTA 3"];
                     for (var i = 0; i < restaurants.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
-                            + "><img class='card-img-top' src='public/img/"
-                            + restaurants[i] + ".jpg' width='300' height='300'" +
-                            "alt='Card image cap'><div class='card-body'>" +
-                            "<h5 class='card-title'>" + restaurants[i] + "</h5>" +
-                            "<p class='card-text'>" + getPlacesRoute('route' + i) + "</p>" +
-                            "<button type='button' onclick='createRoute(`route" + i + "`)'" +
-                            "class='btn btn-primary'>Ir</button>" + "</div></div>";
+                                + "><img class='card-img-top' src='public/img/"
+                                + restaurants[i] + ".jpg' width='300' height='300'" +
+                                "alt='Card image cap'><div class='card-body'>" +
+                                "<h5 class='card-title'>" + restaurants[i] + "</h5>" +
+                                "<p class='card-text'>" + getPlacesRoute('route' + i) + "</p>" +
+                                "<button type='button' onclick='createRoute(`route" + i + "`)'" +
+                                "class='btn btn-primary'>Ir</button>" + "</div></div>";
                         //    + "<button type='button' onclick='createRoute()' class=class='btn btn-primary'>Ir</button>
 
                         // <button type="button" onclick="cleanFormRegisterProfessional()" class="btn btn-success btn-sm" id="btn-cancel">Cancelar</button>
@@ -80,7 +80,7 @@ function calculateRoutesRestaurant($initialDestination, $finalDestination,
 
 
 function calculateRoutesHotel($startingPoint, $finalDestination,
-    $duration, $hotelType, $hotelPrice, $distance) {
+        $duration, $hotelType, $hotelPrice, $distance) {
 
     var parameters = {
         "startingPoint": $startingPoint,
@@ -119,13 +119,13 @@ function calculateRoutesHotel($startingPoint, $finalDestination,
                     var hotels = ["Ruta 1", "Ruta 2", "Ruta 3"];
                     for (var i = 0; i < hotels.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
-                            + "><img class='card-img-top' src='public/img/"
-                            + hotels[i] + ".jpg' width='300' height='300'" +
-                            "alt='Card image cap'><div class='card-body'>" +
-                            "<h5 class='card-title'>" + hotels[i] + "</h5>" +
-                            "<p class='card-text'>" + getPlacesRoute('route' + i) + "</p>" +
-                            "<button type='button' onclick='createRouteHotel(`route" + i + "`)'" +
-                            "class='btn btn-primary'>Ir</button>" + "</div></div>";
+                                + "><img class='card-img-top' src='public/img/"
+                                + hotels[i] + ".jpg' width='300' height='300'" +
+                                "alt='Card image cap'><div class='card-body'>" +
+                                "<h5 class='card-title'>" + hotels[i] + "</h5>" +
+                                "<p class='card-text'>" + getPlacesRoute('route' + i) + "</p>" +
+                                "<button type='button' onclick='createRouteHotel(`route" + i + "`)'" +
+                                "class='btn btn-primary'>Ir</button>" + "</div></div>";
                     }
                     $("#sites").html($createHTML);
                 }, 1000);
@@ -136,7 +136,7 @@ function calculateRoutesHotel($startingPoint, $finalDestination,
 }
 
 function calculateRoutesActivity(startingPoint, finalDestination,
-    activityType, activityPrice, activityDuration, distance) {
+        activityType, activityPrice, activityDuration, distance) {
 
     var parameters = {
         "startingPoint": startingPoint,
@@ -172,14 +172,14 @@ function calculateRoutesActivity(startingPoint, finalDestination,
                     var activities = ["Ruta 1", "RUTA 2", "RUTA 3"];
                     for (var i = 0; i < activities.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
-                            + "><img class='card-img-top' src='public/img/"
-                            + activities[i] + ".jpg' width='300' height='300'" +
-                            "alt='Card image cap'><div class='card-body'>" +
-                            "<h5 class='card-title'>" + activities[i] + "</h5>" +
-                            "<p class='card-text'>Tu mejor destino, disfruta estas" +
-                            "maravillosas actividades en estar rutas para ti</p>" +
-                            "<button type='button' onclick='createRoute(`route" + i + "`)'" +
-                            "class='btn btn-primary'>Ir</button>" + "</div></div>";
+                                + "><img class='card-img-top' src='public/img/"
+                                + activities[i] + ".jpg' width='300' height='300'" +
+                                "alt='Card image cap'><div class='card-body'>" +
+                                "<h5 class='card-title'>" + activities[i] + "</h5>" +
+                                "<p class='card-text'>Tu mejor destino, disfruta estas" +
+                                "maravillosas actividades en estar rutas para ti</p>" +
+                                "<button type='button' onclick='createRoute(`route" + i + "`)'" +
+                                "class='btn btn-primary'>Ir</button>" + "</div></div>";
                     }
                     $("#sites").html($createHTML);
                 }, 3000);
@@ -189,11 +189,13 @@ function calculateRoutesActivity(startingPoint, finalDestination,
     });
 }
 
-function calculateRecommendedSite(startingPoint, finalDestination) {
+function calculateRecommendedSite(startingPoint, finalDestination, duration, distance) {
 
     var parameters = {
         "startingPoint": startingPoint,
-        "finalDestination": finalDestination
+        "finalDestination": finalDestination,
+        "duration": duration,
+        "distance": distance
     };
     $.ajax({
         data: parameters,
@@ -215,21 +217,24 @@ function calculateRecommendedSite(startingPoint, finalDestination) {
                     $("#spinner").html("");
                     $("#result").html("Rutas recomendadas:");
                     $createHTML = "";
-                    var sites = ["Ruta 1", "RUTA 2", "RUTA 3"];
+
+
+                    localStorage.setItem("routes", response);
+
+                    console.log(response);
+                    var sites = ["Ruta 1", "Ruta 2", "Ruta 3"];
                     for (var i = 0; i < sites.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
-                            + "><img class='card-img-top' src='public/img/"
-                            + sites[i] + ".jpg' width='300' height='300'" +
-                            "alt='Card image cap'><div class='card-body'>" +
-                            "<h5 class='card-title'>" + sites[i] + "</h5>" +
-                            "<p class='card-text'>Tu mejor destino, disfruta del " +
-                            "viaje en compañia de los tuyos</p>" +
-                            "<a href='?controlador=RecommendedSite&accion=getRoute"
-                            + "'" + "class='btn btn-primary'>"
-                            + "Ir</a></div></div>"
+                                + "><img class='card-img-top' src='public/img/"
+                                + sites[i] + ".jpg' width='300' height='300'" +
+                                "alt='Card image cap'><div class='card-body'>" +
+                                "<h5 class='card-title'>" + sites[i] + "</h5>" +
+                                "<p class='card-text'>Le recomendamos la ruta ideal</p>" +
+                                "<button type='button' onclick='createRouteTourist(`route" + i + "`)'" +
+                                "class='btn btn-primary'>Ir</button>" + "</div></div>";
                     }
                     $("#sites").html($createHTML);
-                }, 3000);
+                }, 1000);
 
             }
         }
@@ -277,13 +282,13 @@ function calculateRoutesTourist(startingPoint, finalDestination, typeTourist, ag
                     var tourist = ["Ruta 1", "Ruta 2", "Ruta 3"];
                     for (var i = 0; i < tourist.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
-                            + "><img class='card-img-top' src='public/img/"
-                            + tourist[i] + ".jpg' width='300' height='300'" +
-                            "alt='Card image cap'><div class='card-body'>" +
-                            "<h5 class='card-title'>" + tourist[i] + "</h5>" +
-                            "<p class='card-text'>Las mejores actividades en tu ruta ideal</p>" +
-                            "<button type='button' onclick='createRouteTourist(`route" + i + "`)'" +
-                            "class='btn btn-primary'>Ir</button>" + "</div></div>";
+                                + "><img class='card-img-top' src='public/img/"
+                                + tourist[i] + ".jpg' width='300' height='300'" +
+                                "alt='Card image cap'><div class='card-body'>" +
+                                "<h5 class='card-title'>" + tourist[i] + "</h5>" +
+                                "<p class='card-text'>Las mejores actividades en tu ruta ideal</p>" +
+                                "<button type='button' onclick='createRouteTourist(`route" + i + "`)'" +
+                                "class='btn btn-primary'>Ir</button>" + "</div></div>";
                     }
                     $("#sites").html($createHTML);
                 }, 1000);
@@ -319,15 +324,15 @@ function calculateServiceEstablishments(startingPoint) {
                     var serviceEstablishments = ["Ruta 1", "RUTA 2", "RUTA 3"];
                     for (var i = 0; i < serviceEstablishments.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
-                            + "><img class='card-img-top' src='public/img/"
-                            + serviceEstablishments[i] + ".jpg' width='300' height='300'" +
-                            "alt='Card image cap'><div class='card-body'>" +
-                            "<h5 class='card-title'>" + serviceEstablishments[i] + "</h5>" +
-                            "<p class='card-text'>Una de las opciones cercanas " +
-                            "sobre establecimientos de servicios</p>" +
-                            "<a href='?controlador=ServiceEstablishments&accion=getRoute" +
-                            "'" + "class='btn btn-primary'>"
-                            + "Ir</a></div></div>"
+                                + "><img class='card-img-top' src='public/img/"
+                                + serviceEstablishments[i] + ".jpg' width='300' height='300'" +
+                                "alt='Card image cap'><div class='card-body'>" +
+                                "<h5 class='card-title'>" + serviceEstablishments[i] + "</h5>" +
+                                "<p class='card-text'>Una de las opciones cercanas " +
+                                "sobre establecimientos de servicios</p>" +
+                                "<a href='?controlador=ServiceEstablishments&accion=getRoute" +
+                                "'" + "class='btn btn-primary'>"
+                                + "Ir</a></div></div>"
                     }
                     $("#sites").html($createHTML);
                 }, 3000);
@@ -371,13 +376,13 @@ function calculateTypeOfRoad(startingPoint, finalDestination, typeOfRoad, durati
                     var hotels = ["Ruta 1", "Ruta 2", "Ruta 3"];
                     for (var i = 0; i < hotels.length; i++) {
                         $createHTML += "<div class='card' style='width: 18rem;'"
-                            + "><img class='card-img-top' src='public/img/"
-                            + hotels[i] + ".jpg' width='300' height='300'" +
-                            "alt='Card image cap'><div class='card-body'>" +
-                            "<h5 class='card-title'>" + hotels[i] + "</h5>" +
-                            "<p class='card-text'>" + getPlacesRoute('route' + i) + "</p>" +
-                            "<button type='button' onclick='createRouteHotel(`route" + i + "`)'" +
-                            "class='btn btn-primary'>Ir</button>" + "</div></div>";
+                                + "><img class='card-img-top' src='public/img/"
+                                + hotels[i] + ".jpg' width='300' height='300'" +
+                                "alt='Card image cap'><div class='card-body'>" +
+                                "<h5 class='card-title'>" + hotels[i] + "</h5>" +
+                                "<p class='card-text'>" + getPlacesRoute('route' + i) + "</p>" +
+                                "<button type='button' onclick='createRouteHotel(`route" + i + "`)'" +
+                                "class='btn btn-primary'>Ir</button>" + "</div></div>";
 
                     }//getPlacesRoute('route' + i) 
                     $("#sites").html($createHTML);
@@ -540,3 +545,4 @@ function createRouteTourist(id) {
     window.location.replace("?controlador=Tourist&accion=showTouristRouteView");
 
 }
+
