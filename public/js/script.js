@@ -388,6 +388,7 @@ function calculateTypeOfRoad(startingPoint, finalDestination, typeOfRoad, durati
             $("#spinner").html(" <div class='spinner-border text-primary' style='margin-top: 5%' id='spinner' role='status'></div>");
         },
         success: function (response) {
+            localStorage.setItem("routes", response);
             /*Set the span label result*/
             if (response === 0) {
                 $("#result").html("<div class='alert alert-danger'>*No \n\
