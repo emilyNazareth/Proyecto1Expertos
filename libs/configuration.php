@@ -10,5 +10,10 @@ $config->set('dbhost', '163.178.107.10');
 $config->set('dbname', 'turista_inteligente');
 $config->set('dbuser', 'laboratorios');
 $config->set('dbpass', 'KmZpo.2796');
+
+// $config->set('dbhost', '127.0.0.1'); 
+// $config->set('dbname', 'turista_inteligente');
+// $config->set('dbuser', 'root');
+// $config->set('dbpass', '');
 ?>
 
